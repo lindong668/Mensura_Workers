@@ -30,13 +30,6 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    /* ★ www → 裸域（根域必须做，避免 www 与非 www 双份索引）
-     * 与 5 号子域站不同：saoo.me 是根域，www.saoo.me 是真实存在的常见输入，
-     * 这条跳转在这里是真需要的，不是死代码。 */
-    if (url.hostname === 'www.saoo.me') {
-      return Response.redirect('https://saoo.me' + url.pathname + url.search, 301);
-    }
-
     const pathname = url.pathname;
 
     if (pathname === '/ads.txt') {

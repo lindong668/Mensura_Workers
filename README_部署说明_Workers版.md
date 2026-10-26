@@ -192,19 +192,55 @@ https://www.saoo.me/                    301 跳到 https://saoo.me/
 
 ---
 
-## 7. 关于 www.saoo.me 跳转
+## 7. 关于 www.saoo.me 跳转（★ K2 已改：不再写在 Worker 里）
 
-Worker 里已写 `www.saoo.me → saoo.me` 的 301。
-**但这条要生效，需要 DNS 里有 www 记录**，二选一：
+### K2 变更：Worker 里的 www 301 已删除
 
 ```
-方案 A：CF DNS 加 CNAME  www → saoo.me（橙云）
-        再在 routes 里加一条 www.saoo.me/*
-方案 B：不加，www.saoo.me 直接解析不了（无害，只是没人这么访问）
+K1：src/index.js 里写了 www.saoo.me → saoo.me 的 301
+K2：已删除 ❌
 ```
 
-根域和子域不同：5 号 `home.saoo.me` 的 www 是死代码（四级域名没人访问），
-**但根域的 www.saoo.me 是真实存在的常见输入，这里值得加。**
+**为什么删**：Workers + Assets 默认是「静态资源优先」。
+访问 `https://www.saoo.me/` 时，路径 `/` 匹配到静态 `index.html`，
+**Worker 根本不会执行** → 跳转是死代码，页面直接 200 返回内容。
+
+更糟的是：如果只加 DNS 让 www 能访问而不跳转，
+`saoo.me` 和 `www.saoo.me` 会同时打开相同内容 →
+Google 视为两个站、两份重复内容 → 双份索引、权重分散。
+
+### ★ 现在要 www 跳转，请用 CF Redirect Rules（不走 Worker，不占额度）
+
+```
+CF → 域名 saoo.me → Rules → Redirect Rules → 创建规则
+
+名称：www to apex
+自定义过滤表达式：
+    http.host eq "www.saoo.me"
+Then：
+    类型：动态
+    表达式：wildcard("https://www.saoo.me/*")
+    目标 URL：https://saoo.me/${1}
+    状态码：301
+保留查询字符串：开
+→ 部署
+```
+
+**生效前提（两条都要）**：
+
+```
+① DNS 有 www 记录
+   CF → DNS → CNAME，名称 www，目标 saoo.me，代理状态【橙云】
+② Workers → mensura-saoo → 域和路由 → 添加路由 www.saoo.me/*
+```
+
+### 不做也完全可以（推荐）
+
+```
+DNS 里不放 www 记录 → www.saoo.me 解析不了
+→ 全网只有 saoo.me 一个入口，无重复内容风险
+→ 什么都不用做，最干净
+```
 
 ---
 
@@ -275,3 +311,75 @@ D19         home.saoo.me 房贷站（Workers）     ← 已部署，等根域过
 【作废】C18 saoo.me 根域导航站                 ← 已弃用，勿用
 （待做）    pic.saoo.me / oil.saoo.me / unit.saoo.me
 ```
+
+---
+
+## 12. 补充（2026-10-26 14:45）：部署目录层级已验证正确
+
+### 实测结论（用户确认）
+```
+✅ https://saoo.me/ads.txt        能打开
+✅ https://saoo.me/robots.txt     能打开
+✅ https://saoo.me/sitemap.xml    能打开
+✅ https://saoo.me/               能打开
+
+❌ https://saoo.me/public/ads.txt  打不开（符合预期）
+   → 说明部署时上传的是 public/ 【里面】的内容，层级正确
+   → 资产根目录 = index.html / ads.txt / robots.txt / sitemap.xml 平铺
+```
+
+**不要再怀疑目录层级问题，这一项已排除。**
+
+### ★ 下一步验证重点：Content-Type
+
+「能打开」还不够，AdSense 审核看的是 **Content-Type 必须正确**：
+
+```
+/ads.txt     必须是 text/plain
+/robots.txt  必须是 text/plain
+/sitemap.xml 必须是 application/xml（或 text/xml）
+```
+
+如果 Content-Type 被返回成 text/html 或 application/json，
+AdSense / GSC 会判定「ads.txt 无效 / 无法抓取」，审核照样卡住。
+
+**验证方法（推荐用 GSC，看的是 Google 视角的真实结果）：**
+```
+GSC → 网址检查 → 输入 https://saoo.me/ads.txt
+→ 查看「被测试的网页」→ 响应标头 → Content-Type
+```
+
+**或本地浏览器：**
+```
+Chrome DevTools → Network → 访问 /ads.txt → 点该请求
+→ Response Headers → Content-Type
+```
+
+### ★ 若 Content-Type 不对
+
+说明 run_worker_first 没生效（Worker 没接管、走了静态层），
+按顺序查：
+
+```
+① wrangler.toml 里 run_worker_first 是否在 [assets] 段内
+   （放在 [observability] 后面就无效）
+② 部署时是否上传了 wrangler.toml
+   （网页上传方式可能只用界面配置，不读 toml）
+③ 若网页上传不读 toml，手动在 CF 控制台确认：
+   Workers → mensura-saoo → 设置 → 确认 Assets 配置
+```
+
+兜底方案：静态层 _headers 已配了这三个文件的 MIME，
+即使 Worker 不接管，静态层也能给出正确 Content-Type。
+（所以本方案是双保险，两层都配了）
+
+---
+
+## 13. 版本变更记录
+
+| 版本 | 日期 | 变更 |
+|---|---|---|
+| K1 | 2026-10-26 | 首个 Workers 版（由 CF Pages 版 I3 改） |
+| K2 | 2026-10-26 | ① 32 个页面加防主题闪烁脚本<br>② 删除 Worker 里的 www 301（改由 CF Redirect Rules 处理） |
+
+**★ 当前最新版：K2**

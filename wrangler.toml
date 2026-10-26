@@ -10,7 +10,11 @@
 #
 # name 必须与 CF 控制台上的 Worker 名字一致
 # ============================================================
-name = "mensura-saoo"
+# ★★ K4-fix：name 必须与 CF 控制台上实际存在的 Worker 名一致
+# 实际 Worker 名 = mensura-workers（用户截图确认）
+# 若写成 mensura-saoo，wrangler deploy 会新建一个空 Worker，
+# 域名仍绑在 mensura-workers 上 → 新代码根本不生效
+name = "mensura-workers"
 account_id = "d49e51b1279804c22035a33a9c1cb06e"
 compatibility_date = "2026-09-01"
 main = "src/index.js"

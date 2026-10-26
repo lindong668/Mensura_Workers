@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperature Converter — Celsius, Fahrenheit, Kelvin &amp; Rankine</title>
+<meta name="description" content="Convert temperature across four scales. Unlike most units, temperature conversion is not a simple multiplication — here is why, and where the scales intersect.">
+<link rel="canonical" href="https://saoo.me/tools/temperature-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Temperature Converter — Celsius, Fahrenheit, Kelvin &amp; Rankine">
+<meta property="og:description" content="Convert temperature across four scales. Unlike most units, temperature conversion is not a simple multiplication — here is why, and where the scales intersect.">
+<meta property="og:url" content="https://saoo.me/tools/temperature-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Temperature Converter",
+  "url": "https://saoo.me/tools/temperature-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert temperature across four scales. Unlike most units, temperature conversion is not a simple multiplication — here is why, and where the scales intersect."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "At what temperature are Celsius and Fahrenheit equal?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "−40 degrees. It is the only crossing point of the two scales."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why do I add 32 when converting °C to °F?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Because the scales have different zero points as well as different degree sizes. The 9/5 handles step size, the +32 handles the offset."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can Kelvin be negative?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. 0 K is absolute zero. A negative Kelvin value indicates an input error or a non-physical scenario."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is Rankine used for?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Rankine is the absolute scale built on Fahrenheit-degree steps. It appears in some US engineering thermodynamics work, particularly older texts."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is 37 °C exactly 98.6 °F?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "37 °C is exactly 98.6 °F. The familiar figure comes from rounding a slightly different original average (about 37.0 °C)."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converters", "item": "https://saoo.me/category/unit-converters.html"}, {"@type": "ListItem", "position": 3, "name": "Temperature Converter", "item": "https://saoo.me/tools/temperature-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html" class="active">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/unit-converters.html">Unit Converters</a><span>/</span>Temperature Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Temperature Converter</h1>
+  <p class="page-desc">Convert between Celsius, Fahrenheit, Kelvin and Rankine. Temperature is the rare quantity where conversion needs an offset as well as a factor — a point that trips up spreadsheets and quick mental maths alike.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="temperature-converter"><div class="field"><label>Calculator</label></div></div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Why temperature is not a simple ratio</h2>
+<p>Length, mass and volume all share a true zero: zero metres means no length, so you can convert by multiplying alone. Temperature scales have <strong>arbitrary zeros</strong>. 0 °C is the freezing point of water, not the absence of heat. So every conversion needs both a scale factor and an offset:</p>
+<ul>
+<li><strong>°F = °C × 9/5 + 32</strong></li>
+<li><strong>K = °C + 273.15</strong></li>
+<li><strong>°R = °F + 459.67</strong></li>
+</ul>
+<p>This is also why "20 °C is twice as hot as 10 °C" is meaningless — the statement depends on which zero you picked. It is true in Kelvin (293.15 K is not double 283.15 K either) but never in Celsius.</p>
+
+<h2>The one point where Celsius and Fahrenheit agree</h2>
+<div class="note-box"><strong>−40° = −40°</strong>. It is the only temperature at which the Celsius and Fahrenheit readings are identical, because −40 is where the two linear scales cross. Useful as a sanity check: any converter that does not return −40 for both at that input is wrong.</div>
+
+<h2>Kelvin has no negative values</h2>
+<p>Kelvin starts at absolute zero (0 K = −273.15 °C), the theoretical point of minimum thermal energy. A negative Kelvin result signals an input error or a physically impossible state, not a valid temperature. Rankine is the absolute counterpart to Fahrenheit and is used in some US engineering thermodynamics contexts.</p>
+<table class="data">
+<thead><tr><th>Landmark</th><th>°C</th><th>°F</th><th>K</th></tr></thead>
+<tbody>
+<tr><td>Absolute zero</td><td>−273.15</td><td>−459.67</td><td>0</td></tr>
+<tr><td>Water freezes</td><td>0</td><td>32</td><td>273.15</td></tr>
+<tr><td>Human body</td><td>37</td><td>98.6</td><td>310.15</td></tr>
+<tr><td>Water boils (1 atm)</td><td>100</td><td>212</td><td>373.15</td></tr>
+</tbody></table>
+
+<h2>Fahrenheit's 180-degree decision</h2>
+<p>Fahrenheit set the freezing point of water at 32 and body temperature near 96, giving 180 degrees between freezing and boiling — a number chosen because it divides cleanly by 2, 3, 4, 5, 6, 9, 10 and 12. The scale was later recalibrated so boiling sits at exactly 212 and normal body temperature settled at 98.6 °F.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">At what temperature are Celsius and Fahrenheit equal?</button><div class="faq-a"><p>−40 degrees. It is the only crossing point of the two scales.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why do I add 32 when converting °C to °F?</button><div class="faq-a"><p>Because the scales have different zero points as well as different degree sizes. The 9/5 handles step size, the +32 handles the offset.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Can Kelvin be negative?</button><div class="faq-a"><p>No. 0 K is absolute zero. A negative Kelvin value indicates an input error or a non-physical scenario.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What is Rankine used for?</button><div class="faq-a"><p>Rankine is the absolute scale built on Fahrenheit-degree steps. It appears in some US engineering thermodynamics work, particularly older texts.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is 37 °C exactly 98.6 °F?</button><div class="faq-a"><p>37 °C is exactly 98.6 °F. The familiar figure comes from rounding a slightly different original average (about 37.0 °C).</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="length-converter.html" class="card"><div class="card-icon">📏</div><h3>Length Converter</h3><p>Convert length between metric and imperial units instantly. Includes nanometers, miles, nautica…</p></a><a href="weight-converter.html" class="card"><div class="card-icon">⚖️</div><h3>Weight Converter</h3><p>Convert weight between kilograms, pounds, ounces, stone, grams and tonnes with exact definitions.</p></a><a href="volume-converter.html" class="card"><div class="card-icon">🥤</div><h3>Volume Converter</h3><p>Convert volume with the US vs Imperial gallon distinction handled correctly. US and UK gallons …</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

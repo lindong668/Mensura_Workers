@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Converter — Square Meters, Acres, Hectares &amp; Square Feet</title>
+<meta name="description" content="Convert area units with exact factors. Includes the acre-to-hectare relationship and why property listings mix systems.">
+<link rel="canonical" href="https://saoo.me/tools/area-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Area Converter — Square Meters, Acres, Hectares &amp; Square Feet">
+<meta property="og:description" content="Convert area units with exact factors. Includes the acre-to-hectare relationship and why property listings mix systems.">
+<meta property="og:url" content="https://saoo.me/tools/area-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Area Converter",
+  "url": "https://saoo.me/tools/area-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert area units with exact factors. Includes the acre-to-hectare relationship and why property listings mix systems."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How many square feet are in an acre?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Exactly 43,560 square feet."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How many acres is a hectare?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "About 2.471 acres. One hectare is exactly 10,000 m²; one acre is 4046.8564224 m²."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the difference between 'square feet' and 'feet square'?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "'100 square feet' is an area of 100 ft². '100 feet square' means a 100 ft × 100 ft square, which is 10,000 ft² — a hundred times larger."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I convert m² to ft²?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply by 10.7639104, the square of the exact 0.3048 m-per-foot factor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why do area conversions look like odd numbers?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Because area factors are the squares of length factors. 0.3048² = 0.09290304, which is exact but not a round number."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converters", "item": "https://saoo.me/category/unit-converters.html"}, {"@type": "ListItem", "position": 3, "name": "Area Converter", "item": "https://saoo.me/tools/area-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html" class="active">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/unit-converters.html">Unit Converters</a><span>/</span>Area Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Area Converter</h1>
+  <p class="page-desc">Convert area across ten units from square millimetres to square miles. All factors derive from exact length definitions, squared.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="area-converter"><div class="field"><label>Calculator</label></div></div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Area units square their length errors</h2>
+<p>Because area is length squared, every conversion factor is the square of the corresponding length factor. A foot is 0.3048 m, so a square foot is 0.3048² = 0.09290304 m² exactly. This also means small length errors grow: a 1% error in a measurement becomes roughly a 2% error in the area.</p>
+
+<h2>Acres and hectares: the two land standards</h2>
+<p>An <strong>acre</strong> is 4046.8564224 m² — historically the area a team of oxen could plough in a day, later fixed as 43,560 square feet. A <strong>hectare</strong> is exactly 10,000 m², a clean metric construct of one square hectometre. One hectare is about 2.471 acres.</p>
+<div class="note-box"><strong>Why listings confuse buyers.</strong> US property is quoted in acres or square feet, most of the world in hectares or square metres. A "2-hectare" plot sounds small to an American ear but is nearly 5 acres — close to five US football fields.</div>
+
+<h2>Visual anchors</h2>
+<table class="data">
+<thead><tr><th>Unit</th><th>Square metres</th><th>Rough anchor</th></tr></thead>
+<tbody>
+<tr><td>Square foot</td><td>0.0929</td><td>A floor tile</td></tr>
+<tr><td>Square metre</td><td>1</td><td>Half a parking space</td></tr>
+<tr><td>Acre</td><td>4046.86</td><td>~75% of a football pitch</td></tr>
+<tr><td>Hectare</td><td>10,000</td><td>~2.5 acres</td></tr>
+<tr><td>Square kilometre</td><td>1,000,000</td><td>100 hectares</td></tr>
+<tr><td>Square mile</td><td>2,589,988</td><td>640 acres</td></tr>
+</tbody></table>
+
+<h2>Square feet versus "feet square"</h2>
+<p>These are different statements. "100 square feet" is an area of 100 ft². "100 feet square" describes a shape 100 ft on each side, which is 10,000 ft². Listings, floor plans and material estimates frequently blur the two, and the error is a factor of 100.</p>
+
+<h2>Practical rounding for materials</h2>
+<p>When converting area for flooring, turf or paint, round up rather than to nearest. Coverage estimates assume ideal conditions, and most materials are sold in fixed pack sizes that do not divide evenly into your exact area.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">How many square feet are in an acre?</button><div class="faq-a"><p>Exactly 43,560 square feet.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How many acres is a hectare?</button><div class="faq-a"><p>About 2.471 acres. One hectare is exactly 10,000 m²; one acre is 4046.8564224 m².</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What is the difference between 'square feet' and 'feet square'?</button><div class="faq-a"><p>'100 square feet' is an area of 100 ft². '100 feet square' means a 100 ft × 100 ft square, which is 10,000 ft² — a hundred times larger.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How do I convert m² to ft²?</button><div class="faq-a"><p>Multiply by 10.7639104, the square of the exact 0.3048 m-per-foot factor.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why do area conversions look like odd numbers?</button><div class="faq-a"><p>Because area factors are the squares of length factors. 0.3048² = 0.09290304, which is exact but not a round number.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="length-converter.html" class="card"><div class="card-icon">📏</div><h3>Length Converter</h3><p>Convert length between metric and imperial units instantly. Includes nanometers, miles, nautica…</p></a><a href="weight-converter.html" class="card"><div class="card-icon">⚖️</div><h3>Weight Converter</h3><p>Convert weight between kilograms, pounds, ounces, stone, grams and tonnes with exact definitions.</p></a><a href="volume-converter.html" class="card"><div class="card-icon">🥤</div><h3>Volume Converter</h3><p>Convert volume with the US vs Imperial gallon distinction handled correctly. US and UK gallons …</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

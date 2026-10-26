@@ -1,0 +1,9 @@
+{
+  "name": "mensura-saoo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mensura — precision measurement and calculation tools (Cloudflare Workers + Assets)",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  }
+}

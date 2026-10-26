@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unix Timestamp Converter — Seconds, Milliseconds &amp; ISO 8601</title>
+<meta name="description" content="Convert Unix timestamps to readable dates and back. Auto-detects seconds vs milliseconds and explains the 2038 problem.">
+<link rel="canonical" href="https://saoo.me/tools/unix-timestamp-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Unix Timestamp Converter — Seconds, Milliseconds &amp; ISO 8601">
+<meta property="og:description" content="Convert Unix timestamps to readable dates and back. Auto-detects seconds vs milliseconds and explains the 2038 problem.">
+<meta property="og:url" content="https://saoo.me/tools/unix-timestamp-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Unix Timestamp Converter",
+  "url": "https://saoo.me/tools/unix-timestamp-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert Unix timestamps to readable dates and back. Auto-detects seconds vs milliseconds and explains the 2038 problem."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Seconds or milliseconds — which should I use?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Unix timestamps are conventionally seconds. JavaScript and some APIs use milliseconds. This tool auto-detects by magnitude."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the 2038 problem?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Signed 32-bit timestamp storage overflows on 19 January 2038, wrapping to 1901. 64-bit systems are unaffected."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why is my timestamp showing 1970?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Almost always because a seconds value was read as milliseconds (or vice versa), placing the result near the epoch."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are leap seconds counted?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Unix time assumes every day has exactly 86,400 seconds; leap seconds are not represented."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Should I store UTC or local time?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Store UTC (or a Unix timestamp) and convert to local only when displaying. It avoids daylight-saving and migration bugs."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Date & Time Tools", "item": "https://saoo.me/category/date-time.html"}, {"@type": "ListItem", "position": 3, "name": "Unix Timestamp Converter", "item": "https://saoo.me/tools/unix-timestamp-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html" class="active">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/date-time.html">Date & Time Tools</a><span>/</span>Unix Timestamp Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Unix Timestamp Converter</h1>
+  <p class="page-desc">Convert between Unix epoch timestamps and human-readable dates, in both UTC and your local timezone. Automatically detects whether your input is in seconds or milliseconds.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="unix-timestamp-converter">
+<div class="io-grid">
+  <div class="field"><label for="tsInput">Unix timestamp</label>
+    <input type="text" id="tsInput" inputmode="numeric" autocomplete="off">
+    <div class="hint">Seconds or milliseconds — detected automatically.</div></div>
+  <div class="field"><label>&nbsp;</label>
+    <button class="btn btn-ghost" id="tsNow" type="button">Use current time</button></div>
+</div>
+<div class="result-box" id="tsOut"></div>
+</div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>What a Unix timestamp actually is</h2>
+<p>It is the number of <strong>seconds</strong> since 00:00:00 UTC on 1 January 1970, excluding leap seconds. It is a count, not a date format — which is why the same instant has one integer timestamp worldwide but many local time representations.</p>
+
+<h2>Seconds or milliseconds?</h2>
+<div class="note-box warn"><strong>The most common bug.</strong> JavaScript's <code>Date.now()</code> returns <strong>milliseconds</strong>; Unix timestamps and most backend APIs use <strong>seconds</strong>. Mixing them produces dates in 1970 or the year 55,000. This tool detects which you meant by magnitude: values below 10¹¹ are treated as seconds, above as milliseconds.</div>
+
+<h2>The 2038 problem</h2>
+<p>Systems storing a timestamp in a signed 32-bit integer overflow on <strong>19 January 2038</strong> at 03:14:07 UTC, when the counter exceeds 2,147,483,647. The result wraps to a date in 1901. Modern 64-bit systems are unaffected, but embedded devices, legacy file formats and old database column types still carry the risk.</p>
+
+<h2>Timestamps ignore leap seconds</h2>
+<p>Unix time pretends every day has exactly 86,400 seconds. Real UTC occasionally inserts a leap second to stay aligned with Earth's rotation, and Unix time simply repeats or skips as needed. For most applications this is invisible, but high-precision logging and astronomy need a time scale that accounts for it.</p>
+
+<h2>Why store timestamps at all?</h2>
+<p>Integers sort chronologically, compare cheaply, need no timezone parsing and take little space. The trade-off is human unreadability, which is exactly why conversion tools like this exist. Store in UTC, convert only for display.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">Seconds or milliseconds — which should I use?</button><div class="faq-a"><p>Unix timestamps are conventionally seconds. JavaScript and some APIs use milliseconds. This tool auto-detects by magnitude.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What is the 2038 problem?</button><div class="faq-a"><p>Signed 32-bit timestamp storage overflows on 19 January 2038, wrapping to 1901. 64-bit systems are unaffected.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why is my timestamp showing 1970?</button><div class="faq-a"><p>Almost always because a seconds value was read as milliseconds (or vice versa), placing the result near the epoch.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Are leap seconds counted?</button><div class="faq-a"><p>No. Unix time assumes every day has exactly 86,400 seconds; leap seconds are not represented.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Should I store UTC or local time?</button><div class="faq-a"><p>Store UTC (or a Unix timestamp) and convert to local only when displaying. It avoids daylight-saving and migration bugs.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="date-duration-calculator.html" class="card"><div class="card-icon">📅</div><h3>Date Duration Calculator</h3><p>Count the exact number of days, weeks and years between two dates. Handles leap years and shows…</p></a><a href="age-calculator.html" class="card"><div class="card-icon">🎂</div><h3>Age Calculator</h3><p>Calculate exact age from a birth date, with total days lived, weeks, months and the date of you…</p></a><a href="base64-tool.html" class="card"><div class="card-icon">🔐</div><h3>Base64 Encoder &amp; Decoder</h3><p>Encode text to Base64 and decode Base64 back to text, with correct UTF-8 handling for non-ASCII…</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

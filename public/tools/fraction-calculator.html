@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fraction Calculator — Add, Subtract, Multiply, Divide &amp; Simplify</title>
+<meta name="description" content="Perform arithmetic on fractions with automatic simplification. Shows the unsimplified result, the simplified fraction and the decimal equivalent.">
+<link rel="canonical" href="https://saoo.me/tools/fraction-calculator.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Fraction Calculator — Add, Subtract, Multiply, Divide &amp; Simplify">
+<meta property="og:description" content="Perform arithmetic on fractions with automatic simplification. Shows the unsimplified result, the simplified fraction and the decimal equivalent.">
+<meta property="og:url" content="https://saoo.me/tools/fraction-calculator.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fraction Calculator",
+  "url": "https://saoo.me/tools/fraction-calculator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Perform arithmetic on fractions with automatic simplification. Shows the unsimplified result, the simplified fraction and the decimal equivalent."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How do I add fractions with different denominators?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Convert both to a common denominator, add the numerators, then simplify. The LCM of the denominators is the most efficient choice."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does the result show a mixed number?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "When the result is improper, mixed form is easier to read. The unsimplified fraction and decimal are also shown."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does 'simplify' mean?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Reducing the fraction so numerator and denominator share no common factor above 1 — done by dividing both by their GCD."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I divide by a fraction?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Dividing by a fraction means multiplying by its reciprocal (flip the second fraction)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why not just use decimals?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Decimals cannot represent values like 1/3 exactly. Fractions stay precise where decimals must round."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://saoo.me/category/math.html"}, {"@type": "ListItem", "position": 3, "name": "Fraction Calculator", "item": "https://saoo.me/tools/fraction-calculator.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html">Converters</a><a href="../category/math.html" class="active">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/math.html">Math Calculators</a><span>/</span>Fraction Calculator</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Fraction Calculator</h1>
+  <p class="page-desc">Add, subtract, multiply or divide two fractions, with automatic reduction to lowest terms. Shows the raw result, the simplified fraction and the decimal value so you can follow each step.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="fraction-calculator">
+<div class="io-grid">
+  <div class="field"><label for="fN1">Numerator 1</label><input type="number" id="fN1" value="3" step="1"></div>
+  <div class="field"><label for="fD1">Denominator 1</label><input type="number" id="fD1" value="4" step="1"></div>
+  <div class="field"><label for="fOp">Operation</label>
+    <select id="fOp"><option value="+">+</option><option value="-">−</option>
+      <option value="*">×</option><option value="/">÷</option></select></div>
+  <div class="field"><label for="fN2">Numerator 2</label><input type="number" id="fN2" value="1" step="1"></div>
+  <div class="field"><label for="fD2">Denominator 2</label><input type="number" id="fD2" value="6" step="1"></div>
+</div>
+<div class="result-box" id="fOut"></div>
+</div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Why fractions beat decimals for exactness</h2>
+<p>One third cannot be written exactly as a decimal — 0.333… never terminates. As a fraction, 1/3 is exact. This is why recipes, carpentry and engineering drawings keep fractional measures: they preserve precision that decimal rounding destroys.</p>
+
+<h2>The four operations</h2>
+<table class="data">
+<thead><tr><th>Operation</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td>Add / subtract</td><td>Find a common denominator, then combine numerators</td></tr>
+<tr><td>Multiply</td><td>Numerator × numerator, denominator × denominator</td></tr>
+<tr><td>Divide</td><td>Multiply by the reciprocal of the second fraction</td></tr>
+</tbody></table>
+
+<h2>Common denominators</h2>
+<p>To add or subtract, denominators must match. The most efficient common denominator is the LCM of the two denominators — using the product always works but produces larger numbers that then need reducing. This tool uses the product and simplifies afterwards, which gives the same answer with less setup.</p>
+
+<h2>Simplification</h2>
+<p>A fraction is in lowest terms when numerator and denominator share no common factor greater than 1 — that is, when their GCD is 1. Dividing both by their GCD achieves this in one step.</p>
+
+<h2>Improper fractions and mixed numbers</h2>
+<p>An improper fraction has a numerator larger than its denominator (7/4). Converting to a mixed number (1¾) is often easier to visualise, but improper fractions are far easier to compute with — which is why calculators keep them internally and only display mixed form when asked.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">How do I add fractions with different denominators?</button><div class="faq-a"><p>Convert both to a common denominator, add the numerators, then simplify. The LCM of the denominators is the most efficient choice.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why does the result show a mixed number?</button><div class="faq-a"><p>When the result is improper, mixed form is easier to read. The unsimplified fraction and decimal are also shown.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What does 'simplify' mean?</button><div class="faq-a"><p>Reducing the fraction so numerator and denominator share no common factor above 1 — done by dividing both by their GCD.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Can I divide by a fraction?</button><div class="faq-a"><p>Yes. Dividing by a fraction means multiplying by its reciprocal (flip the second fraction).</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why not just use decimals?</button><div class="faq-a"><p>Decimals cannot represent values like 1/3 exactly. Fractions stay precise where decimals must round.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="percentage-calculator.html" class="card"><div class="card-icon">%</div><h3>Percentage Calculator</h3><p>Calculate percentages: X% of Y, X is what % of Y, and percentage change. Includes the percent v…</p></a><a href="average-calculator.html" class="card"><div class="card-icon">📊</div><h3>Average, Median &amp; Standard Deviation Calculator</h3><p>Compute mean, median, mode, range and sample standard deviation from a list of numbers. Explain…</p></a><a href="gcd-lcm-calculator.html" class="card"><div class="card-icon">🔢</div><h3>GCD &amp; LCM Calculator</h3><p>Find the GCD and LCM of two or more integers using Euclid's algorithm. Shows how they connect a…</p></a></div>
+  </section>
+  <div class="disclaimer">Results are provided for information only. Verify figures independently before relying on them for financial, legal or contractual decisions.</div>
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word &amp; Character Counter — Words, Characters, Bytes &amp; Reading Time</title>
+<meta name="description" content="Count words, characters, bytes, sentences, lines and paragraphs. Shows the UTF-8 byte count that matters for SMS, databases and API limits.">
+<link rel="canonical" href="https://saoo.me/tools/word-counter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Word &amp; Character Counter — Words, Characters, Bytes &amp; Reading Time">
+<meta property="og:description" content="Count words, characters, bytes, sentences, lines and paragraphs. Shows the UTF-8 byte count that matters for SMS, databases and API limits.">
+<meta property="og:url" content="https://saoo.me/tools/word-counter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Word &amp; Character Counter",
+  "url": "https://saoo.me/tools/word-counter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Count words, characters, bytes, sentences, lines and paragraphs. Shows the UTF-8 byte count that matters for SMS, databases and API limits."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Why is the byte count higher than the character count?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "UTF-8 uses 1 byte for ASCII but 2–4 bytes for accented characters, CJK and emoji."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is my text uploaded anywhere?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Counting happens entirely in your browser; nothing is transmitted."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What word-count convention is used?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Whitespace splitting — the most common convention. Hyphenated words count as one token."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How is reading time calculated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "At 200 words per minute, a standard average for English prose. Technical or legal text usually takes longer."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I use this for SMS length checking?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes — check the UTF-8 byte count, since SMS segmentation is defined in bytes rather than characters."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://saoo.me/category/developer.html"}, {"@type": "ListItem", "position": 3, "name": "Word &amp; Character Counter", "item": "https://saoo.me/tools/word-counter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html" class="active">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/developer.html">Developer Tools</a><span>/</span>Word &amp; Character Counter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Word &amp; Character Counter</h1>
+  <p class="page-desc">Count words, characters, bytes, sentences, lines and paragraphs in any text, with an estimated reading time. Runs entirely in your browser — nothing is uploaded.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="word-counter">
+<div class="field"><label for="wcInput">Paste or type your text</label>
+  <textarea id="wcInput" style="min-height:170px" placeholder="Start typing…">The quick brown fox jumps over the lazy dog.</textarea></div>
+<div class="result-box" id="wcOut"></div>
+</div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Characters are not bytes</h2>
+<div class="note-box warn"><strong>The distinction that breaks SMS billing and database limits.</strong> A Latin letter is 1 byte in UTF-8, but an accented character like "é" is 2 bytes, a CJK character like "中" is 3, and an emoji is typically 4. A 100-character message that looks short can be 300 bytes. Character limits and byte limits are different constraints, and only one of them applies to your situation.</div>
+
+<h2>What counts as a word?</h2>
+<p>There is no universal definition. The common approach — and the one used here — splits on whitespace, which means hyphenated and punctuation-attached tokens behave differently across tools. "state-of-the-art" is one word by whitespace splitting, three by punctuation splitting. For contractual or editorial word counts, confirm which convention the other party uses.</p>
+
+<h2>Reading time estimates</h2>
+<p>The 200 words-per-minute figure is a long-standing average for silent reading of English prose. Technical material, dense legal text and second-language reading all run slower. Treat it as a rough magnitude, not a specification.</p>
+
+<h2>Where byte counts matter</h2>
+<ul>
+<li><strong>SMS</strong> — segment limits are defined in bytes under GSM or UTF-8 encoding, so a message of 160 characters may split into multiple segments.</li>
+<li><strong>Database columns</strong> — VARCHAR(n) may count characters or bytes depending on the engine and collation.</li>
+<li><strong>API payload limits</strong> — usually specified in bytes, so emoji-heavy content hits the ceiling far sooner than plain text.</li>
+</ul>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">Why is the byte count higher than the character count?</button><div class="faq-a"><p>UTF-8 uses 1 byte for ASCII but 2–4 bytes for accented characters, CJK and emoji.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is my text uploaded anywhere?</button><div class="faq-a"><p>No. Counting happens entirely in your browser; nothing is transmitted.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What word-count convention is used?</button><div class="faq-a"><p>Whitespace splitting — the most common convention. Hyphenated words count as one token.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How is reading time calculated?</button><div class="faq-a"><p>At 200 words per minute, a standard average for English prose. Technical or legal text usually takes longer.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Can I use this for SMS length checking?</button><div class="faq-a"><p>Yes — check the UTF-8 byte count, since SMS segmentation is defined in bytes rather than characters.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="average-calculator.html" class="card"><div class="card-icon">📊</div><h3>Average, Median &amp; Standard Deviation Calculator</h3><p>Compute mean, median, mode, range and sample standard deviation from a list of numbers. Explain…</p></a><a href="base64-tool.html" class="card"><div class="card-icon">🔐</div><h3>Base64 Encoder &amp; Decoder</h3><p>Encode text to Base64 and decode Base64 back to text, with correct UTF-8 handling for non-ASCII…</p></a><a href="url-encoder.html" class="card"><div class="card-icon">🔗</div><h3>URL Encoder &amp; Decoder</h3><p>Encode and decode URL components with percent-encoding. Explains the difference between encodin…</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

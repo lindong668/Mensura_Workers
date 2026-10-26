@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooking Converter — Cups, Spoons &amp; Grams by Ingredient</title>
+<meta name="description" content="Convert cooking measurements including the US, Japanese and Australian cup. Converts volume to weight using real ingredient densities.">
+<link rel="canonical" href="https://saoo.me/tools/cooking-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Cooking Converter — Cups, Spoons &amp; Grams by Ingredient">
+<meta property="og:description" content="Convert cooking measurements including the US, Japanese and Australian cup. Converts volume to weight using real ingredient densities.">
+<meta property="og:url" content="https://saoo.me/tools/cooking-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cooking Converter",
+  "url": "https://saoo.me/tools/cooking-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert cooking measurements including the US, Japanese and Australian cup. Converts volume to weight using real ingredient densities."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is a cup 240 mL or 250 mL?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Depends on the country: US legal cup 240 mL, Australian and UK metric cup 250 mL, Japanese cup 200 mL."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How many grams is a cup of flour?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "About 127 g for a spooned-and-levelled US cup of all-purpose flour. Scooped directly from the bag it can reach 140–150 g."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does my recipe say grams when I have cups?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Weight is reproducible; cup volume varies with how an ingredient is packed, sifted or scooped. Grams remove that variability."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are US and Australian tablespoons the same?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. US tablespoon is about 15 mL; Australian is 20 mL — a third larger."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I convert mL to grams with one number?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Only for water (about 1 g/mL). Every other ingredient needs its own density, which is why this tool asks which ingredient you mean."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converters", "item": "https://saoo.me/category/unit-converters.html"}, {"@type": "ListItem", "position": 3, "name": "Cooking Converter", "item": "https://saoo.me/tools/cooking-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html" class="active">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/unit-converters.html">Unit Converters</a><span>/</span>Cooking Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Cooking Converter</h1>
+  <p class="page-desc">Convert cooking measures across cups, spoons and millilitres — and convert volume to weight using per-ingredient density. Handles the fact that a cup is 240 mL in the US, 200 mL in Japan and 250 mL in Australia.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="cooking-converter"><div class="field"><label>Calculator</label></div></div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>A cup is three different sizes</h2>
+<div class="note-box warn"><strong>The most common recipe failure.</strong> The US legal cup is <strong>240 mL</strong>. The Japanese cup is <strong>200 mL</strong>. The Australian cup is <strong>250 mL</strong>. A recipe developed with one and measured with another is off by up to 20% in every ingredient — enough to change a cake's texture entirely. Australian tablespoons are also larger: 20 mL versus the US 15 mL.</div>
+<p><strong>A second trap inside the US itself.</strong> Two different US sets exist and they must not be mixed:</p>
+<ul>
+<li><strong>US legal</strong> — cup 240 mL, tablespoon 15 mL, teaspoon 5 mL. This is what nutrition labels use, and it is internally consistent: 1 cup = 16 tbsp = 48 tsp.</li>
+<li><strong>US customary</strong> — cup 236.588 mL, tablespoon 14.787 mL, teaspoon 4.929 mL. This is what older cookbooks mean, and it is also internally consistent: 1 cup = 16 tbsp = 48 tsp.</li>
+</ul>
+<p>Combining a legal cup with customary spoons gives 16.23 tablespoons per cup — the kind of 1.4% drift that quietly ruins a recipe that scales. Both sets are listed above; stay inside one.</p>
+
+<h2>Volume to weight needs density</h2>
+<p>Millilitres measure space; grams measure substance. Bridging them requires density, and cooking ingredients vary enormously. One US cup (240 mL) holds very different masses:</p>
+<table class="data">
+<thead><tr><th>Ingredient</th><th>Density (g/mL)</th><th>Weight per US cup</th></tr></thead>
+<tbody>
+<tr><td>Water</td><td>1.00</td><td>240 g</td></tr>
+<tr><td>Milk</td><td>1.03</td><td>247 g</td></tr>
+<tr><td>All-purpose flour</td><td>0.53</td><td>127 g</td></tr>
+<tr><td>Granulated sugar</td><td>0.85</td><td>204 g</td></tr>
+<tr><td>Butter</td><td>0.911</td><td>219 g</td></tr>
+<tr><td>Honey</td><td>1.42</td><td>341 g</td></tr>
+<tr><td>Rolled oats</td><td>0.35</td><td>84 g</td></tr>
+</tbody></table>
+<p>Note the flour figure: 127 g, not 240 g. Assuming "a cup weighs 240 grams" because it works for water will badly over-flour a recipe.</p>
+
+<h2>Flour is the ingredient most worth weighing</h2>
+<p>Flour's apparent density depends entirely on how it is handled. Scooped straight from the bag, a cup can hold 140–150 g; spooned in and levelled, closer to 120 g. That is a 25% swing in the single most structurally important ingredient in baking, which is why experienced bakers weigh flour and treat cup measures as approximate.</p>
+
+<h2>Butter and the wrapper trick</h2>
+<p>Butter at 0.911 g/mL means one US stick (½ cup, 120 mL) weighs about 110 g — close enough to the familiar 113 g (4 oz) label that packaging is marked in tablespoons for convenience. Slight differences between salted and unsalted butter, and temperature-driven density changes, are why professional recipes specify weight.</p>
+
+<h2>Practical advice</h2>
+<ul>
+<li>Weigh dry ingredients, especially flour and cocoa.</li>
+<li>Use volume only for liquids and for small spoon measures.</li>
+<li>Identify which country's cup your recipe assumes before measuring.</li>
+<li>Remember brown sugar is usually specified "packed" — its density in the table above reflects that.</li>
+</ul>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">Is a cup 240 mL or 250 mL?</button><div class="faq-a"><p>Depends on the country: US legal cup 240 mL, Australian and UK metric cup 250 mL, Japanese cup 200 mL.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How many grams is a cup of flour?</button><div class="faq-a"><p>About 127 g for a spooned-and-levelled US cup of all-purpose flour. Scooped directly from the bag it can reach 140–150 g.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why does my recipe say grams when I have cups?</button><div class="faq-a"><p>Weight is reproducible; cup volume varies with how an ingredient is packed, sifted or scooped. Grams remove that variability.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Are US and Australian tablespoons the same?</button><div class="faq-a"><p>No. US tablespoon is about 15 mL; Australian is 20 mL — a third larger.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Can I convert mL to grams with one number?</button><div class="faq-a"><p>Only for water (about 1 g/mL). Every other ingredient needs its own density, which is why this tool asks which ingredient you mean.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="weight-converter.html" class="card"><div class="card-icon">⚖️</div><h3>Weight Converter</h3><p>Convert weight between kilograms, pounds, ounces, stone, grams and tonnes with exact definitions.</p></a><a href="temperature-converter.html" class="card"><div class="card-icon">🌡</div><h3>Temperature Converter</h3><p>Convert temperature across four scales. Unlike most units, temperature conversion is not a simp…</p></a><a href="volume-converter.html" class="card"><div class="card-icon">🥤</div><h3>Volume Converter</h3><p>Convert volume with the US vs Imperial gallon distinction handled correctly. US and UK gallons …</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

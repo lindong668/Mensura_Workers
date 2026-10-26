@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date Duration Calculator — Days Between Two Dates</title>
+<meta name="description" content="Count the exact number of days, weeks and years between two dates. Handles leap years and shows the direction of the interval.">
+<link rel="canonical" href="https://saoo.me/tools/date-duration-calculator.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Date Duration Calculator — Days Between Two Dates">
+<meta property="og:description" content="Count the exact number of days, weeks and years between two dates. Handles leap years and shows the direction of the interval.">
+<meta property="og:url" content="https://saoo.me/tools/date-duration-calculator.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Date Duration Calculator",
+  "url": "https://saoo.me/tools/date-duration-calculator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Count the exact number of days, weeks and years between two dates. Handles leap years and shows the direction of the interval."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is the day count inclusive?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No — it reports end minus start. Monday to Wednesday is 2 days. Add one if you need inclusive counting."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it handle leap years?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Calculations use real calendar arithmetic, so 29 February is counted correctly."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why is the year figure approximate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Months vary in length and years vary between 365 and 366 days, so years are reported using the 365.2425-day Gregorian average."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I count working days only?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "This tool counts calendar days. Excluding weekends and holidays requires a separate business-day calculation."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What if the end date is earlier?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The result is shown as negative, with a note that the interval runs backwards."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Date & Time Tools", "item": "https://saoo.me/category/date-time.html"}, {"@type": "ListItem", "position": 3, "name": "Date Duration Calculator", "item": "https://saoo.me/tools/date-duration-calculator.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html" class="active">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/date-time.html">Date & Time Tools</a><span>/</span>Date Duration Calculator</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Date Duration Calculator</h1>
+  <p class="page-desc">Find the number of days between two dates, with weeks, hours and approximate years shown alongside. Leap years are handled automatically by using real calendar arithmetic rather than a fixed 365-day year.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="date-duration-calculator">
+<div class="io-grid">
+  <div class="field"><label for="ddStart">Start date</label><input type="date" id="ddStart"></div>
+  <div class="field"><label for="ddEnd">End date</label><input type="date" id="ddEnd"></div>
+</div>
+<div class="result-box" id="ddOut"></div>
+<div class="note-box">This counts the <strong>difference</strong> between dates (end − start). Monday to Wednesday is 2 days. Add one if you need inclusive counting.</div>
+</div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Counting days versus counting the gap</h2>
+<div class="note-box warn"><strong>An off-by-one that catches everyone.</strong> Between Monday and Wednesday there is a <strong>2-day</strong> difference, but the period <em>spans</em> 3 days if you count Monday itself. This tool reports the difference in days (end minus start), which is what contracts and deadlines usually mean. If you need inclusive counting, add one day.</div>
+
+<h2>Leap years</h2>
+<p>A calendar year is not 365 days — it averages 365.2425 days under the Gregorian rules: leap every 4 years, except centuries, except centuries divisible by 400. So 2000 was a leap year, 1900 was not, and 2100 will not be. Using a fixed 365-day year drifts by roughly one day every four years, which is why this tool converts using real calendar dates.</p>
+
+<h2>Months are not a fixed length</h2>
+<p>"How many months?" depends on which months. February to March is 28 or 29 days; July to August is 31. That is why the tool reports days and weeks exactly, and years only as an approximation based on 365.2425 days. For legal or financial periods, specify days rather than months.</p>
+
+<h2>Common uses</h2>
+<ul>
+<li><strong>Contract and notice periods</strong> — where "within 30 days" means calendar days.</li>
+<li><strong>Project elapsed time</strong> — distinguishing working calendars from raw day counts.</li>
+<li><strong>Deadlines and cut-offs</strong> — where "within 30 days" means calendar days, not working days.</li>
+</ul>
+
+    <div class="faq"><h2>Why business days are hard to count</h2>
+<p>Many deadlines are written in working days, and this tool counts calendar days. The gap between the two is not a fixed ratio. A week contains five working days, but public holidays shift the count per country and per year, and some jurisdictions count Saturday as a working day while others do not.</p>
+<p>Because of that, no single formula converts calendar days to business days reliably. The practical approach is to count calendar days here, then subtract weekends and the specific holidays your contract or jurisdiction recognises — which is why legal documents usually name the calendar rather than leave it implied.</p>
+
+<h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">Is the day count inclusive?</button><div class="faq-a"><p>No — it reports end minus start. Monday to Wednesday is 2 days. Add one if you need inclusive counting.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Does it handle leap years?</button><div class="faq-a"><p>Yes. Calculations use real calendar arithmetic, so 29 February is counted correctly.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why is the year figure approximate?</button><div class="faq-a"><p>Months vary in length and years vary between 365 and 366 days, so years are reported using the 365.2425-day Gregorian average.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Can I count working days only?</button><div class="faq-a"><p>This tool counts calendar days. Excluding weekends and holidays requires a separate business-day calculation.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What if the end date is earlier?</button><div class="faq-a"><p>The result is shown as negative, with a note that the interval runs backwards.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="percentage-calculator.html" class="card"><div class="card-icon">%</div><h3>Percentage Calculator</h3><p>Calculate percentages: X% of Y, X is what % of Y, and percentage change. Includes the percent v…</p></a><a href="age-calculator.html" class="card"><div class="card-icon">🎂</div><h3>Age Calculator</h3><p>Calculate exact age from a birth date, with total days lived, weeks, months and the date of you…</p></a><a href="unix-timestamp-converter.html" class="card"><div class="card-icon">⏱</div><h3>Unix Timestamp Converter</h3><p>Convert Unix timestamps to readable dates and back. Auto-detects seconds vs milliseconds and ex…</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

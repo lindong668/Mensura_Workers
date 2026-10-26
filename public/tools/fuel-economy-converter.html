@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel Economy Converter — L/100 km vs MPG (US &amp; UK)</title>
+<meta name="description" content="Convert between L/100km, MPG (US) and MPG (UK). US and Imperial gallons differ by 20%, and MPG is not linear — improvements mean different things at different baselines.">
+<link rel="canonical" href="https://saoo.me/tools/fuel-economy-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Fuel Economy Converter — L/100 km vs MPG (US &amp; UK)">
+<meta property="og:description" content="Convert between L/100km, MPG (US) and MPG (UK). US and Imperial gallons differ by 20%, and MPG is not linear — improvements mean different things at different baselines.">
+<meta property="og:url" content="https://saoo.me/tools/fuel-economy-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fuel Economy Converter",
+  "url": "https://saoo.me/tools/fuel-economy-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert between L/100km, MPG (US) and MPG (UK). US and Imperial gallons differ by 20%, and MPG is not linear — improvements mean different things at different baselines."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Why does my car get better MPG in UK units?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The Imperial gallon is 4.546 L versus 3.785 L for the US gallon — about 20% larger, so the same fuel burn yields a higher MPG figure."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is improving from 20 to 30 MPG the same saving as 40 to 50?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. MPG is reciprocal. 20→30 saves about 3.9 L/100 km; 40→50 saves only about 1.2 L/100 km."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why do some countries use L/100 km?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It is linear in fuel consumed, so equal improvements always mean equal savings. MPG hides this."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I convert 8 L/100 km to MPG?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "US: 235.214583 ÷ 8 = 29.4 MPG. UK: 282.480936 ÷ 8 = 35.3 MPG."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are official MPG figures accurate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "They are comparable between cars but usually optimistic versus real driving, which adds cold starts, load, speed and climate load."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converters", "item": "https://saoo.me/category/unit-converters.html"}, {"@type": "ListItem", "position": 3, "name": "Fuel Economy Converter", "item": "https://saoo.me/tools/fuel-economy-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html" class="active">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/unit-converters.html">Unit Converters</a><span>/</span>Fuel Economy Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Fuel Economy Converter</h1>
+  <p class="page-desc">Convert fuel consumption between L/100 km, km/L, MPG (US gallon) and MPG (Imperial gallon) — with the gallon distinction handled correctly and the non-linearity explained.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="fuel-economy-converter"><div class="field"><label>Calculator</label></div></div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>US MPG and UK MPG are different units</h2>
+<div class="note-box warn"><strong>A 20% trap.</strong> The US gallon is 3.785 L; the Imperial gallon is 4.546 L. The same car, burning identical fuel over an identical distance, scores a <strong>higher</strong> MPG number in the UK purely because the gallon is bigger. A car rated 30 MPG (US) is about 36 MPG (UK). Comparing the two numbers directly is meaningless.</div>
+
+<h2>Why MPG is not linear — and why that matters</h2>
+<p>MPG is a reciprocal, so equal steps in MPG do not mean equal fuel saved. Going from 20 to 30 MPG saves far more fuel than going from 40 to 50 MPG, even though both are "10 MPG better":</p>
+<table class="data">
+<thead><tr><th>Change</th><th>Fuel per 100 km (before)</th><th>After</th><th>Saved</th></tr></thead>
+<tbody>
+<tr><td>20 → 30 MPG (US)</td><td>11.76 L</td><td>7.84 L</td><td><strong>3.92 L</strong></td></tr>
+<tr><td>30 → 40 MPG (US)</td><td>7.84 L</td><td>5.88 L</td><td>1.96 L</td></tr>
+<tr><td>40 → 50 MPG (US)</td><td>5.88 L</td><td>4.70 L</td><td>1.18 L</td></tr>
+</tbody></table>
+<p>This is why L/100 km is the better unit for comparisons: it is linear in fuel, so a 1 L/100 km improvement always saves the same amount of fuel regardless of baseline. Several countries adopted it for exactly this reason.</p>
+
+<h2>The conversion constants</h2>
+<ul>
+<li><strong>MPG (US) = 235.214583 ÷ (L/100 km)</strong></li>
+<li><strong>MPG (UK) = 282.480936 ÷ (L/100 km)</strong></li>
+<li><strong>L/100 km = 235.214583 ÷ MPG (US)</strong></li>
+</ul>
+<p>The constants come from 100 km expressed in miles divided by the gallon in litres — which is why they look so arbitrary.</p>
+
+<h2>Real-world figures differ from the sticker</h2>
+<p>Official test-cycle figures are produced under controlled conditions that rarely match actual driving. Cold starts, short trips, air-conditioning load, roof racks, tyre pressure and speed all move real consumption — typically upward. Treat converted figures as a consistent way to compare vehicles, not as a prediction of your fuel bill.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">Why does my car get better MPG in UK units?</button><div class="faq-a"><p>The Imperial gallon is 4.546 L versus 3.785 L for the US gallon — about 20% larger, so the same fuel burn yields a higher MPG figure.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is improving from 20 to 30 MPG the same saving as 40 to 50?</button><div class="faq-a"><p>No. MPG is reciprocal. 20→30 saves about 3.9 L/100 km; 40→50 saves only about 1.2 L/100 km.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why do some countries use L/100 km?</button><div class="faq-a"><p>It is linear in fuel consumed, so equal improvements always mean equal savings. MPG hides this.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How do I convert 8 L/100 km to MPG?</button><div class="faq-a"><p>US: 235.214583 ÷ 8 = 29.4 MPG. UK: 282.480936 ÷ 8 = 35.3 MPG.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Are official MPG figures accurate?</button><div class="faq-a"><p>They are comparable between cars but usually optimistic versus real driving, which adds cold starts, load, speed and climate load.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="length-converter.html" class="card"><div class="card-icon">📏</div><h3>Length Converter</h3><p>Convert length between metric and imperial units instantly. Includes nanometers, miles, nautica…</p></a><a href="volume-converter.html" class="card"><div class="card-icon">🥤</div><h3>Volume Converter</h3><p>Convert volume with the US vs Imperial gallon distinction handled correctly. US and UK gallons …</p></a><a href="speed-converter.html" class="card"><div class="card-icon">🚀</div><h3>Speed Converter</h3><p>Convert speed between six units including knots and Mach. Includes why Mach is not a fixed numb…</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

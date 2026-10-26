@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Average, Median, Mode &amp; Standard Deviation Calculator</title>
+<meta name="description" content="Compute mean, median, mode, range and sample standard deviation from a list of numbers. Explains when the average is the wrong number to quote.">
+<link rel="canonical" href="https://saoo.me/tools/average-calculator.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Average, Median, Mode &amp; Standard Deviation Calculator">
+<meta property="og:description" content="Compute mean, median, mode, range and sample standard deviation from a list of numbers. Explains when the average is the wrong number to quote.">
+<meta property="og:url" content="https://saoo.me/tools/average-calculator.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Average, Median &amp; Standard Deviation Calculator",
+  "url": "https://saoo.me/tools/average-calculator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Compute mean, median, mode, range and sample standard deviation from a list of numbers. Explains when the average is the wrong number to quote."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Should I use mean or median?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use the mean for symmetric data where the total matters. Use the median when outliers or skew would distort the average."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does this use n−1 for standard deviation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "That is Bessel's correction, appropriate when your numbers are a sample estimating a larger population. It is the standard default."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What if there is no mode?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "If every value appears exactly once, there is no mode. The tool reports that rather than guessing."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I enter comma-separated numbers?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Any numbers separated by commas, spaces or line breaks are parsed; text is ignored."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does 'range' tell me?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The gap between smallest and largest value. It is easy to understand but very sensitive to a single outlier."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://saoo.me/category/math.html"}, {"@type": "ListItem", "position": 3, "name": "Average, Median &amp; Standard Deviation Calculator", "item": "https://saoo.me/tools/average-calculator.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html">Converters</a><a href="../category/math.html" class="active">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/math.html">Math Calculators</a><span>/</span>Average, Median &amp; Standard Deviation Calculator</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Average, Median &amp; Standard Deviation Calculator</h1>
+  <p class="page-desc">Paste or type a list of numbers and get count, sum, mean, median, mode, range and sample standard deviation. Also explains which of these you should actually quote.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="average-calculator">
+<div class="field"><label for="avgInput">Enter numbers (commas, spaces or line breaks)</label>
+  <textarea id="avgInput" style="min-height:130px">12, 15, 18, 22, 24, 24, 31</textarea>
+  <div class="hint">Any separators work — text is ignored.</div></div>
+<div class="result-box" id="avgOut"></div>
+</div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Mean is not always the honest summary</h2>
+<div class="note-box warn"><strong>The classic distortion.</strong> In a room of ten people where nine earn $40k and one earns $1M, the mean income is about $136k — a figure nobody in the room earns. The median is $40k. When data is skewed by a few extreme values, the median describes the typical case and the mean describes the arithmetic.</div>
+<p>This is why income, house prices and response times are conventionally reported as medians: they are resistant to outliers. Use the mean when values cluster symmetrically and you care about the total; use the median when outliers exist and you care about the typical case.</p>
+
+<h2>Sample versus population standard deviation</h2>
+<p>Standard deviation measures spread. There are two versions, differing only in the divisor:</p>
+<ul>
+<li><strong>Population</strong> divides by n — use when your data is the entire group of interest.</li>
+<li><strong>Sample</strong> divides by n−1 — use when your data is a sample meant to estimate a larger group.</li>
+</ul>
+<p>The n−1 version is <strong>Bessel's correction</strong>, and it compensates for the fact that a sample's spread tends to slightly underestimate the population's. It is what most spreadsheet STDEV functions and statistics courses default to, and it is what this tool reports.</p>
+
+<h2>Reading standard deviation</h2>
+<p>For roughly bell-shaped data, about 68% of values fall within one standard deviation of the mean and about 95% within two. If your data is strongly skewed or has extreme outliers, that rule of thumb breaks down — check the median and range first.</p>
+
+<h2>On mode</h2>
+<p>The mode is the most frequent value, and it is the only one of these statistics that works for categories as well as numbers (most common colour, most frequent error code). It is also the least stable: small changes in data can change the mode, and many datasets have no repeated value at all — in which case there is no mode.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">Should I use mean or median?</button><div class="faq-a"><p>Use the mean for symmetric data where the total matters. Use the median when outliers or skew would distort the average.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why does this use n−1 for standard deviation?</button><div class="faq-a"><p>That is Bessel's correction, appropriate when your numbers are a sample estimating a larger population. It is the standard default.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What if there is no mode?</button><div class="faq-a"><p>If every value appears exactly once, there is no mode. The tool reports that rather than guessing.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Can I enter comma-separated numbers?</button><div class="faq-a"><p>Yes. Any numbers separated by commas, spaces or line breaks are parsed; text is ignored.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What does 'range' tell me?</button><div class="faq-a"><p>The gap between smallest and largest value. It is easy to understand but very sensitive to a single outlier.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="percentage-calculator.html" class="card"><div class="card-icon">%</div><h3>Percentage Calculator</h3><p>Calculate percentages: X% of Y, X is what % of Y, and percentage change. Includes the percent v…</p></a><a href="gcd-lcm-calculator.html" class="card"><div class="card-icon">🔢</div><h3>GCD &amp; LCM Calculator</h3><p>Find the GCD and LCM of two or more integers using Euclid's algorithm. Shows how they connect a…</p></a><a href="fraction-calculator.html" class="card"><div class="card-icon">½</div><h3>Fraction Calculator</h3><p>Perform arithmetic on fractions with automatic simplification. Shows the unsimplified result, t…</p></a></div>
+  </section>
+  <div class="disclaimer">Results are provided for information only. Verify figures independently before relying on them for financial, legal or contractual decisions.</div>
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

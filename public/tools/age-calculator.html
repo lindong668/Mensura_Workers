@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator — Exact Age in Years, Months &amp; Days</title>
+<meta name="description" content="Calculate exact age from a birth date, with total days lived, weeks, months and the date of your next birthday.">
+<link rel="canonical" href="https://saoo.me/tools/age-calculator.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Age Calculator — Exact Age in Years, Months &amp; Days">
+<meta property="og:description" content="Calculate exact age from a birth date, with total days lived, weeks, months and the date of your next birthday.">
+<meta property="og:url" content="https://saoo.me/tools/age-calculator.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Age Calculator",
+  "url": "https://saoo.me/tools/age-calculator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Calculate exact age from a birth date, with total days lived, weeks, months and the date of your next birthday."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How accurate is this age calculation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It uses real calendar arithmetic — years and months first, then days — so leap years and varying month lengths are handled exactly."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What happens if I was born on 29 February?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The tool shows the next 29 February. In non-leap years, different legal systems treat the birthday as 28 February or 1 March."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it count today as a full day?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It reports completed years, months and days as of the reference date you select."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I calculate age at a past or future date?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes — set the 'as of' date to any date you need, past or future."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does total days differ from years × 365?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Because leap years add days. The average Gregorian year is 365.2425 days, not 365."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Date & Time Tools", "item": "https://saoo.me/category/date-time.html"}, {"@type": "ListItem", "position": 3, "name": "Age Calculator", "item": "https://saoo.me/tools/age-calculator.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html" class="active">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/date-time.html">Date & Time Tools</a><span>/</span>Age Calculator</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Age Calculator</h1>
+  <p class="page-desc">Compute exact age in years, months and days from a birth date, plus total days lived and the countdown to your next birthday. Uses real calendar arithmetic, so leap years are handled correctly.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="age-calculator">
+<div class="io-grid">
+  <div class="field"><label for="ageBirth">Date of birth</label><input type="date" id="ageBirth" value="1990-01-01"></div>
+  <div class="field"><label for="ageAsOf">As of (leave today, or pick a date)</label><input type="date" id="ageAsOf"></div>
+</div>
+<div class="result-box" id="ageOut"></div>
+</div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Why exact age needs calendar logic</h2>
+<p>Age cannot be computed by dividing days by 365, because months have different lengths and leap years insert an extra day. This tool steps through years and months first, then resolves the remaining days, borrowing from the previous month when the target day does not exist yet in the current month.</p>
+
+<h2>Born on 29 February</h2>
+<div class="note-box"><strong>Leap-day birthdays are genuinely ambiguous.</strong> In non-leap years there is no 29 February, so different jurisdictions and systems pick either 28 February or 1 March. The difference can matter for legal age thresholds — driving licences, pension eligibility, contractual capacity. This tool reports the next occurrence of 29 February where applicable.</div>
+
+<h2>Counting systems differ by culture</h2>
+<p>East Asian traditions historically used a system where everyone gains a year at the New Year rather than on their birthday, meaning a newborn could be reckoned as one year old. Modern legal usage in those countries has largely moved to the international birthday-based system, but you may still encounter the older reckoning in social contexts.</p>
+
+<h2>What the totals tell you</h2>
+<ul>
+<li><strong>Total days</strong> — elapsed calendar days since birth, the most unambiguous measure.</li>
+<li><strong>Total months</strong> — years × 12 plus completed months; useful for infant milestone tracking.</li>
+<li><strong>Next birthday</strong> — the upcoming date and remaining days, computed by advancing the year until the date is in the future.</li>
+</ul>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">How accurate is this age calculation?</button><div class="faq-a"><p>It uses real calendar arithmetic — years and months first, then days — so leap years and varying month lengths are handled exactly.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What happens if I was born on 29 February?</button><div class="faq-a"><p>The tool shows the next 29 February. In non-leap years, different legal systems treat the birthday as 28 February or 1 March.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Does it count today as a full day?</button><div class="faq-a"><p>It reports completed years, months and days as of the reference date you select.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Can I calculate age at a past or future date?</button><div class="faq-a"><p>Yes — set the 'as of' date to any date you need, past or future.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why does total days differ from years × 365?</button><div class="faq-a"><p>Because leap years add days. The average Gregorian year is 365.2425 days, not 365.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="percentage-calculator.html" class="card"><div class="card-icon">%</div><h3>Percentage Calculator</h3><p>Calculate percentages: X% of Y, X is what % of Y, and percentage change. Includes the percent v…</p></a><a href="date-duration-calculator.html" class="card"><div class="card-icon">📅</div><h3>Date Duration Calculator</h3><p>Count the exact number of days, weeks and years between two dates. Handles leap years and shows…</p></a><a href="unix-timestamp-converter.html" class="card"><div class="card-icon">⏱</div><h3>Unix Timestamp Converter</h3><p>Convert Unix timestamps to readable dates and back. Auto-detects seconds vs milliseconds and ex…</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

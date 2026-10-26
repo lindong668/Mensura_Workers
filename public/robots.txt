@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Google's AdSense crawler — ensure it can reach ad-bearing pages
+User-agent: Mediapartners-Google
+Allow: /
+
+# Explicitly welcome major crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://saoo.me/sitemap.xml

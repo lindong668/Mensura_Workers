@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage Calculator — Three Modes, Done Correctly</title>
+<meta name="description" content="Calculate percentages: X% of Y, X is what % of Y, and percentage change. Includes the percent vs percentage-point distinction.">
+<link rel="canonical" href="https://saoo.me/tools/percentage-calculator.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Percentage Calculator — Three Modes, Done Correctly">
+<meta property="og:description" content="Calculate percentages: X% of Y, X is what % of Y, and percentage change. Includes the percent vs percentage-point distinction.">
+<meta property="og:url" content="https://saoo.me/tools/percentage-calculator.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Percentage Calculator",
+  "url": "https://saoo.me/tools/percentage-calculator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Calculate percentages: X% of Y, X is what % of Y, and percentage change. Includes the percent vs percentage-point distinction."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is the difference between percent and percentage point?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A percentage point is an absolute difference between two percentages (4% → 6% is 2 points). Percent change is relative ((6−4)/4 = 50%)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "If something drops 50%, how much must it rise to recover?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "100%. $100 → $50 requires a 100% gain to return to $100."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is 20% off then 10% off the same as 30% off?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Successive discounts multiply: ×0.80 then ×0.90 = ×0.72, which is 28% off."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I work out what percent X is of Y?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Divide X by Y and multiply by 100. 30 ÷ 200 × 100 = 15%."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does percentage change need the original value?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The original is the denominator. A change from 50→100 is +100%, but 100→50 is −50%, despite the same absolute distance."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://saoo.me/category/math.html"}, {"@type": "ListItem", "position": 3, "name": "Percentage Calculator", "item": "https://saoo.me/tools/percentage-calculator.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html">Converters</a><a href="../category/math.html" class="active">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/math.html">Math Calculators</a><span>/</span>Percentage Calculator</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Percentage Calculator</h1>
+  <p class="page-desc">Three percentage calculations in one place — find a percentage of a number, express one number as a percentage of another, or compute percentage change. Each uses a different formula, and mixing them up is the usual source of error.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="percentage-calculator">
+<div class="io-grid">
+  <div class="field"><label for="pMode">Calculation type</label>
+    <select id="pMode">
+      <option value="pct">What is X% of Y?</option>
+      <option value="iswhat">X is what % of Y?</option>
+      <option value="change">Percentage change from X to Y</option>
+    </select></div>
+  <div class="field"><label for="pA" id="pLblA">X (%)</label>
+    <input type="number" id="pA" value="15" step="any" autocomplete="off"></div>
+  <div class="field"><label for="pB" id="pLblB">Y</label>
+    <input type="number" id="pB" value="200" step="any" autocomplete="off"></div>
+</div>
+<div class="result-box"><div class="result-main" id="pOut">—</div>
+  <div class="result-note">Result updates as you type</div></div>
+</div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Three different questions</h2>
+<table class="data">
+<thead><tr><th>Question</th><th>Formula</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>What is X% of Y?</td><td>X ÷ 100 × Y</td><td>15% of 200 = 30</td></tr>
+<tr><td>X is what % of Y?</td><td>X ÷ Y × 100</td><td>30 is 15% of 200</td></tr>
+<tr><td>% change from X to Y</td><td>(Y − X) ÷ X × 100</td><td>200 → 230 is +15%</td></tr>
+</tbody></table>
+
+<h2>Percent versus percentage point</h2>
+<div class="note-box warn"><strong>The distinction that financial reporting gets wrong constantly.</strong> If a rate rises from 4% to 6%, that is a rise of <strong>2 percentage points</strong> — but a <strong>50% relative increase</strong> ((6−4)/4). Both descriptions are correct and they are not interchangeable. "Interest rates rose 2%" and "rose by 2 percentage points" describe completely different changes.</div>
+
+<h2>Gains and losses are not symmetric</h2>
+<p>A 50% loss requires a 100% gain to get back to the starting point. If $100 falls 50% to $50, returning to $100 needs a 100% rise on $50. This asymmetry is why long-run investment returns are usually quoted as an annualised figure rather than as the arithmetic average of yearly percentage moves.</p>
+
+<h2>Successive percentages multiply</h2>
+<p>Two consecutive 10% increases do not total 20%. The second applies to an already-increased base: 100 × 1.10 × 1.10 = 121, a 21% rise. Likewise a 20% discount followed by an extra 10% off gives 100 × 0.80 × 0.90 = 72, which is 28% off, not 30%.</p>
+
+<h2>Watch the base</h2>
+<p>Percentage change always divides by the <strong>original</strong> value, which makes the choice of baseline decisive. A change from 50 to 100 is +100%; from 100 back to 50 is −50%. Same distance, different percentages, because the denominator changed.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">What is the difference between percent and percentage point?</button><div class="faq-a"><p>A percentage point is an absolute difference between two percentages (4% → 6% is 2 points). Percent change is relative ((6−4)/4 = 50%).</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">If something drops 50%, how much must it rise to recover?</button><div class="faq-a"><p>100%. $100 → $50 requires a 100% gain to return to $100.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is 20% off then 10% off the same as 30% off?</button><div class="faq-a"><p>No. Successive discounts multiply: ×0.80 then ×0.90 = ×0.72, which is 28% off.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How do I work out what percent X is of Y?</button><div class="faq-a"><p>Divide X by Y and multiply by 100. 30 ÷ 200 × 100 = 15%.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why does percentage change need the original value?</button><div class="faq-a"><p>The original is the denominator. A change from 50→100 is +100%, but 100→50 is −50%, despite the same absolute distance.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="average-calculator.html" class="card"><div class="card-icon">📊</div><h3>Average, Median &amp; Standard Deviation Calculator</h3><p>Compute mean, median, mode, range and sample standard deviation from a list of numbers. Explain…</p></a><a href="gcd-lcm-calculator.html" class="card"><div class="card-icon">🔢</div><h3>GCD &amp; LCM Calculator</h3><p>Find the GCD and LCM of two or more integers using Euclid's algorithm. Shows how they connect a…</p></a><a href="fraction-calculator.html" class="card"><div class="card-icon">½</div><h3>Fraction Calculator</h3><p>Perform arithmetic on fractions with automatic simplification. Shows the unsimplified result, t…</p></a></div>
+  </section>
+  <div class="disclaimer">Results are provided for information only. Verify figures independently before relying on them for financial, legal or contractual decisions.</div>
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

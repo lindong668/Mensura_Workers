@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Length Converter — Meters, Feet, Inches, Miles & More</title>
+<meta name="description" content="Convert length between metric and imperial units instantly. Includes nanometers, miles, nautical miles and the survey-foot caveat most converters ignore.">
+<link rel="canonical" href="https://saoo.me/tools/length-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Length Converter — Meters, Feet, Inches, Miles & More">
+<meta property="og:description" content="Convert length between metric and imperial units instantly. Includes nanometers, miles, nautical miles and the survey-foot caveat most converters ignore.">
+<meta property="og:url" content="https://saoo.me/tools/length-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Length Converter",
+  "url": "https://saoo.me/tools/length-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert length between metric and imperial units instantly. Includes nanometers, miles, nautical miles and the survey-foot caveat most converters ignore."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How many inches are in a metre?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Exactly 100 / 2.54 = 39.37007874… inches. The inch is defined as exactly 25.4 mm, so this is exact rather than approximate."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why do some converters give a slightly different foot?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "They may be using the US survey foot (1200/3937 m) instead of the international foot (0.3048 m). The difference is ~2 ppm. This tool uses the international foot."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is a nautical mile longer than a mile?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. A nautical mile is 1852 m; a statute mile is 1609.344 m. The nautical mile is about 15% longer."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I convert feet-and-inches (5'9\") to cm?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Convert each part separately: 5 ft × 30.48 = 152.4 cm, 9 in × 2.54 = 22.86 cm, total 175.26 cm."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are these conversions affected by rounding?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. All factors used here are exact definitions; only the displayed decimals are rounded."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converters", "item": "https://saoo.me/category/unit-converters.html"}, {"@type": "ListItem", "position": 3, "name": "Length Converter", "item": "https://saoo.me/tools/length-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html" class="active">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/unit-converters.html">Unit Converters</a><span>/</span>Length Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Length Converter</h1>
+  <p class="page-desc">Convert between 11 length units spanning nine orders of magnitude — from nanometers to nautical miles. All conversions use exact international definitions, so results are reproducible rather than rounded.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="length-converter"><div class="field"><label>Calculator</label></div></div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>The one definition that fixes everything</h2>
+<p>Since the 1959 international yard-and-pound agreement, the inch is defined as <strong>exactly 25.4 millimetres</strong>. Every other imperial length unit derives from it: a foot is exactly 0.3048 m, a yard 0.9144 m, and a mile 1609.344 m. Because these are exact by definition, converting between metric and imperial never introduces rounding error — any discrepancy you see comes from the number of decimal places displayed, not from the conversion itself.</p>
+
+<h2>Survey feet are not international feet</h2>
+<div class="note-box warn"><strong>The trap most converters miss.</strong> The United States maintains two different feet. The <strong>international foot</strong> (0.3048 m) is used for everyday and most engineering work. The <strong>US survey foot</strong> (1200/3937 m ≈ 0.3048006 m) is still used in some US state plane coordinate systems and older land-survey data. The difference is only about 2 parts per million, but over a 100 km survey line that is roughly 20 cm — enough to matter in legal boundary work.</div>
+<p>This tool uses the international foot. If you are working with legacy US geospatial data, confirm which foot your source uses before mixing coordinates.</p>
+
+<h2>Nautical miles measure something different</h2>
+<p>A statute mile (1609.344 m) is an arbitrary historical length. A nautical mile (1852 m, exact) is derived from the Earth: it was originally one minute of latitude. That is why navigation and aviation use nautical miles and knots — a distance in nautical miles maps directly onto a chart's latitude scale.</p>
+<table class="data">
+<thead><tr><th>Unit</th><th>Metres (exact)</th><th>Common use</th></tr></thead>
+<tbody>
+<tr><td>Inch</td><td>0.0254</td><td>Manufacturing, screens</td></tr>
+<tr><td>Foot</td><td>0.3048</td><td>US/UK construction</td></tr>
+<tr><td>Yard</td><td>0.9144</td><td>Fabric, US sports fields</td></tr>
+<tr><td>Mile</td><td>1609.344</td><td>US/UK road distance</td></tr>
+<tr><td>Nautical mile</td><td>1852</td><td>Marine &amp; air navigation</td></tr>
+</tbody></table>
+
+<h2>Choosing sensible precision</h2>
+<p>Converting 1 metre gives 39.3700787… inches, but reporting nine decimals implies a measurement accuracy nobody has. A practical rule: keep roughly one more significant figure than your input justified. If you measured to the nearest centimetre, metres-to-feet at two decimal places is already more than honest.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">How many inches are in a metre?</button><div class="faq-a"><p>Exactly 100 / 2.54 = 39.37007874… inches. The inch is defined as exactly 25.4 mm, so this is exact rather than approximate.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why do some converters give a slightly different foot?</button><div class="faq-a"><p>They may be using the US survey foot (1200/3937 m) instead of the international foot (0.3048 m). The difference is ~2 ppm. This tool uses the international foot.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is a nautical mile longer than a mile?</button><div class="faq-a"><p>Yes. A nautical mile is 1852 m; a statute mile is 1609.344 m. The nautical mile is about 15% longer.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How do I convert feet-and-inches (5'9") to cm?</button><div class="faq-a"><p>Convert each part separately: 5 ft × 30.48 = 152.4 cm, 9 in × 2.54 = 22.86 cm, total 175.26 cm.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Are these conversions affected by rounding?</button><div class="faq-a"><p>No. All factors used here are exact definitions; only the displayed decimals are rounded.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="weight-converter.html" class="card"><div class="card-icon">⚖️</div><h3>Weight Converter</h3><p>Convert weight between kilograms, pounds, ounces, stone, grams and tonnes with exact definitions.</p></a><a href="area-converter.html" class="card"><div class="card-icon">🏞</div><h3>Area Converter</h3><p>Convert area units with exact factors. Includes the acre-to-hectare relationship and why proper…</p></a><a href="speed-converter.html" class="card"><div class="card-icon">🚀</div><h3>Speed Converter</h3><p>Convert speed between six units including knots and Mach. Includes why Mach is not a fixed numb…</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

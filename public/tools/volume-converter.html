@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volume Converter — Liters, Gallons, Cups &amp; Fluid Ounces</title>
+<meta name="description" content="Convert volume with the US vs Imperial gallon distinction handled correctly. US and UK gallons differ by 20%, and so do their fluid ounces.">
+<link rel="canonical" href="https://saoo.me/tools/volume-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Volume Converter — Liters, Gallons, Cups &amp; Fluid Ounces">
+<meta property="og:description" content="Convert volume with the US vs Imperial gallon distinction handled correctly. US and UK gallons differ by 20%, and so do their fluid ounces.">
+<meta property="og:url" content="https://saoo.me/tools/volume-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Volume Converter",
+  "url": "https://saoo.me/tools/volume-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert volume with the US vs Imperial gallon distinction handled correctly. US and UK gallons differ by 20%, and so do their fluid ounces."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How much bigger is a UK gallon than a US gallon?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "About 20%. US = 3.785 L, Imperial = 4.546 L."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is a US fluid ounce the same as a UK fluid ounce?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. US fl oz ≈ 29.57 mL; Imperial fl oz ≈ 28.41 mL. The US one is about 4% larger."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How many cups in a gallon?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "16 US cups per US gallon (240 mL cups). With Imperial gallons the count differs because both the gallon and the cup change."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is 1 mL the same as 1 cc?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. One millilitre is exactly one cubic centimetre (cm³). Medical usage often prefers cc, but they are identical volumes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does my recipe fail when I use another country's cup?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Cup sizes differ: US 240 mL, Japan 200 mL, Australia 250 mL. That is up to a 20% swing in every measured ingredient."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converters", "item": "https://saoo.me/category/unit-converters.html"}, {"@type": "ListItem", "position": 3, "name": "Volume Converter", "item": "https://saoo.me/tools/volume-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html" class="active">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/unit-converters.html">Unit Converters</a><span>/</span>Volume Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Volume Converter</h1>
+  <p class="page-desc">Convert across 15 volume units including both gallon standards, both fluid ounce standards, and the three different cup measures used in recipes around the world.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="volume-converter"><div class="field"><label>Calculator</label></div></div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Two gallons, a 20% difference</h2>
+<div class="note-box warn"><strong>The most common volume error.</strong> The <strong>US gallon</strong> is 3.785411784 L. The <strong>Imperial (UK) gallon</strong> is 4.54609 L — about 20% larger. The same applies to their subdivisions: a US pint is 473 mL while an Imperial pint is 568 mL, and ordering "a pint" in London gets you noticeably more beer than in New York.</div>
+<p>The US gallon is legally defined as 231 cubic inches, a specification inherited from the pre-1824 wine gallon. The Imperial gallon was redefined in 1824 as the volume of 10 pounds of water at a specific temperature, then fixed at 4.54609 L in 1985.</p>
+
+<h2>Three cups, three different amounts</h2>
+<p>A "cup" in a recipe is not a universal measure. The US legal cup is 240 mL, the Japanese cup is 200 mL, and the Australian cup is 250 mL. A recipe developed with one and baked with another is off by up to 20% — enough to ruin a cake. The <a href="cooking-converter.html">cooking converter</a> carries these cup standards alongside per-ingredient conversions.</p>
+
+<h2>Dry pints and liquid pints are not the same pint</h2>
+<p>The United States keeps two parallel sets of volume units, and the word "pint" alone does not tell you which one applies. A <strong>US liquid pint</strong> is 473.176473 mL. A <strong>US dry pint</strong> is 550.6104713575 mL — about 16% larger. The same split runs through quarts: 946.35 mL liquid against 1101.22 mL dry.</p>
+<p>Liquid measures are what recipes, drinks and fuel use. Dry measures apply to berries, grains and other goods sold by volume rather than weight. A US dry barrel and peck belong to the dry set as well. In practice almost everything you meet outside agriculture is the liquid set, but a conversion that assumes the wrong one is off by a sixth — far too much to dismiss.</p>
+
+<h2>Why the numbers never divide cleanly</h2>
+<p>Metric volume is decimal and cubic — 1 mL is 1 cm³, 1000 L is 1 m³. Imperial volume descends from successive halving: gallon → quart → pint → cup → fluid ounce, with 16 cups and 128 fluid ounces to a US gallon. The two systems are structurally incompatible, which is why exact factors look arbitrary.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">How much bigger is a UK gallon than a US gallon?</button><div class="faq-a"><p>About 20%. US = 3.785 L, Imperial = 4.546 L.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is a US fluid ounce the same as a UK fluid ounce?</button><div class="faq-a"><p>No. US fl oz ≈ 29.57 mL; Imperial fl oz ≈ 28.41 mL. The US one is about 4% larger.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How many cups in a gallon?</button><div class="faq-a"><p>16 US cups per US gallon (240 mL cups). With Imperial gallons the count differs because both the gallon and the cup change.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is 1 mL the same as 1 cc?</button><div class="faq-a"><p>Yes. One millilitre is exactly one cubic centimetre (cm³). Medical usage often prefers cc, but they are identical volumes.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why does my recipe fail when I use another country's cup?</button><div class="faq-a"><p>Cup sizes differ: US 240 mL, Japan 200 mL, Australia 250 mL. That is up to a 20% swing in every measured ingredient.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="weight-converter.html" class="card"><div class="card-icon">⚖️</div><h3>Weight Converter</h3><p>Convert weight between kilograms, pounds, ounces, stone, grams and tonnes with exact definitions.</p></a><a href="fuel-economy-converter.html" class="card"><div class="card-icon">⛽</div><h3>Fuel Economy Converter</h3><p>Convert between L/100km, MPG (US) and MPG (UK). US and Imperial gallons differ by 20%, and MPG …</p></a><a href="cooking-converter.html" class="card"><div class="card-icon">🍳</div><h3>Cooking Converter</h3><p>Convert cooking measurements including the US, Japanese and Australian cup. Converts volume to …</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

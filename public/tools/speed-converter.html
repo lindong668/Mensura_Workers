@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speed Converter — km/h, mph, knots, m/s &amp; Mach</title>
+<meta name="description" content="Convert speed between six units including knots and Mach. Includes why Mach is not a fixed number.">
+<link rel="canonical" href="https://saoo.me/tools/speed-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Speed Converter — km/h, mph, knots, m/s &amp; Mach">
+<meta property="og:description" content="Convert speed between six units including knots and Mach. Includes why Mach is not a fixed number.">
+<meta property="og:url" content="https://saoo.me/tools/speed-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Speed Converter",
+  "url": "https://saoo.me/tools/speed-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert speed between six units including knots and Mach. Includes why Mach is not a fixed number."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is Mach 1 always the same speed?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Mach 1 is the local speed of sound, which varies with air temperature — about 331 m/s at 0 °C, 343 m/s at 20 °C, and lower at high altitude."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why do aircraft and ships use knots?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "One knot is one nautical mile per hour, and a nautical mile equals one minute of latitude — so distance can be read straight off a chart's latitude scale."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the quickest way to convert mph to km/h?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply by 1.6. The exact factor is 1.609344, so the shortcut is within 0.6%."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is km/h to m/s exactly divide by 3.6?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. 1 km/h = 1000 m / 3600 s = 1/3.6 m/s exactly."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converters", "item": "https://saoo.me/category/unit-converters.html"}, {"@type": "ListItem", "position": 3, "name": "Speed Converter", "item": "https://saoo.me/tools/speed-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html" class="active">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/unit-converters.html">Unit Converters</a><span>/</span>Speed Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Speed Converter</h1>
+  <p class="page-desc">Convert speed across m/s, km/h, mph, ft/s, knots and Mach. Metric and imperial road units convert exactly; Mach does not, and the reason matters.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="speed-converter"><div class="field"><label>Calculator</label></div></div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Mach is not a constant</h2>
+<div class="note-box warn"><strong>Mach 1 is not one speed.</strong> Mach number is the ratio of your speed to the local speed of sound, and the speed of sound depends on air temperature — roughly 331 m/s at 0 °C and about 343 m/s at 20 °C. At altitude, where air is colder, it drops further. This tool uses the standard sea-level value of 340.3 m/s, which is a convention for comparison, not a physical constant.</div>
+
+<h2>Knots: speed as an angle</h2>
+<p>One knot is one nautical mile per hour, and a nautical mile was defined as one minute of latitude. So a knot is literally "minutes of latitude per hour" — which is why a navigator can measure distance by comparing against the latitude scale printed on the chart, with no separate conversion. That convenience is the entire reason the unit survives in aviation and maritime use.</p>
+
+<h2>Road speed conversions are exact</h2>
+<table class="data">
+<thead><tr><th>Unit</th><th>metres per second</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>m/s</td><td>1</td><td>SI unit</td></tr>
+<tr><td>km/h</td><td>0.2777…</td><td>1/3.6 exactly</td></tr>
+<tr><td>mph</td><td>0.44704</td><td>Exact (mile is 1609.344 m)</td></tr>
+<tr><td>ft/s</td><td>0.3048</td><td>Exact</td></tr>
+<tr><td>knot</td><td>0.5144…</td><td>1852 m / 3600 s</td></tr>
+<tr><td>Mach (sea level)</td><td>340.3</td><td>Convention, not constant</td></tr>
+</tbody></table>
+
+<h2>Quick mental conversions</h2>
+<ul>
+<li><strong>mph → km/h:</strong> multiply by 1.6 (exact is 1.609344).</li>
+<li><strong>km/h → mph:</strong> multiply by 0.62.</li>
+<li><strong>m/s → km/h:</strong> multiply by 3.6 — this one is exact.</li>
+<li><strong>km/h → m/s:</strong> divide by 3.6, or halve then subtract 10% for a rough figure.</li>
+</ul>
+
+<h2>Choosing the unit that fits the context</h2>
+<p>Speed units are not interchangeable in practice because each one was built for a specific job. Knots exist so a navigator can read distance straight off a chart. Mach exists because aircraft performance depends on how close you are to the speed of sound, not on any fixed number. km/h and mph are road units, chosen by whichever side of the imperial divide a country landed on.</p>
+<p>Converting between them is exact for the road units and conventional for Mach, but the number alone rarely carries the meaning: 500 knots means something specific to a pilot that 926 km/h does not. Convert when you need to compare against a limit or a specification written in another unit, and keep the original unit when the context depends on it.</p>
+
+<h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">Is Mach 1 always the same speed?</button><div class="faq-a"><p>No. Mach 1 is the local speed of sound, which varies with air temperature — about 331 m/s at 0 °C, 343 m/s at 20 °C, and lower at high altitude.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why do aircraft and ships use knots?</button><div class="faq-a"><p>One knot is one nautical mile per hour, and a nautical mile equals one minute of latitude — so distance can be read straight off a chart's latitude scale.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What is the quickest way to convert mph to km/h?</button><div class="faq-a"><p>Multiply by 1.6. The exact factor is 1.609344, so the shortcut is within 0.6%.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is km/h to m/s exactly divide by 3.6?</button><div class="faq-a"><p>Yes. 1 km/h = 1000 m / 3600 s = 1/3.6 m/s exactly.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="length-converter.html" class="card"><div class="card-icon">📏</div><h3>Length Converter</h3><p>Convert length between metric and imperial units instantly. Includes nanometers, miles, nautica…</p></a><a href="data-storage-converter.html" class="card"><div class="card-icon">💾</div><h3>Data Storage Converter</h3><p>Convert data sizes with the decimal (SI) and binary (IEC) standards separated. Explains exactly…</p></a><a href="fuel-economy-converter.html" class="card"><div class="card-icon">⛽</div><h3>Fuel Economy Converter</h3><p>Convert between L/100km, MPG (US) and MPG (UK). US and Imperial gallons differ by 20%, and MPG …</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shoe Size Converter — US, UK, EU, Japan &amp; China</title>
+<meta name="description" content="Convert shoe sizes across five systems. Sizing is a lookup table, not a formula — this tool matches against real size charts.">
+<link rel="canonical" href="https://saoo.me/tools/shoe-size-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mensura">
+<meta property="og:title" content="Shoe Size Converter — US, UK, EU, Japan &amp; China">
+<meta property="og:description" content="Convert shoe sizes across five systems. Sizing is a lookup table, not a formula — this tool matches against real size charts.">
+<meta property="og:url" content="https://saoo.me/tools/shoe-size-converter.html">
+<meta property="og:image" content="https://saoo.me/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261024i">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Shoe Size Converter",
+  "url": "https://saoo.me/tools/shoe-size-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires a modern browser with JavaScript enabled",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert shoe sizes across five systems. Sizing is a lookup table, not a formula — this tool matches against real size charts."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Why can't shoe sizes be converted with a formula?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Each system uses a different zero point and step size (barleycorns, Paris points, centimetres), so the relationship is a correspondence table, not a ratio."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is a US women's 9 in men's?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Approximately a US men's 7.5. Women's sizing runs about 1.5 sizes higher than men's for the same length."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is EU 42 the same as UK 8?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Close, but not exactly. EU 42 corresponds to about UK 7.5–8 depending on the brand. Always check the specific maker's chart."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why do sizes differ between brands?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Each brand builds shoes on its own last (the foot form). Last shape, intended sock thickness and regional fit preferences all shift the internal dimensions."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the most reliable way to find my size?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Measure your foot in centimetres at the end of the day and compare against that brand's own chart rather than converting from another system."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saoo.me/"}, {"@type": "ListItem", "position": 2, "name": "Unit Converters", "item": "https://saoo.me/category/unit-converters.html"}, {"@type": "ListItem", "position": 3, "name": "Shoe Size Converter", "item": "https://saoo.me/tools/shoe-size-converter.html"}]}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+<div class="container nav-inner">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>Mensura<span class="brand-sub">Precision Tools</span></span></a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="../category/unit-converters.html" class="active">Converters</a><a href="../category/math.html">Math</a><a href="../category/date-time.html">Date &amp; Time</a><a href="../category/developer.html">Developer</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</div>
+</header>
+<div class="container tool-wrap">
+  <nav class="breadcrumb"><a href="../index.html">Home</a><span>/</span>
+    <a href="../category/unit-converters.html">Unit Converters</a><span>/</span>Shoe Size Converter</nav>
+
+<!-- ADSENSE_ADSENSE_SLOT_TOP : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot ad-top">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <h1 class="page-title">Shoe Size Converter</h1>
+  <p class="page-desc">Convert shoe sizes between US (men's and women's), UK, EU, Japan (cm) and China. Size systems are not interconvertible by formula, so this tool matches against an actual size-correspondence chart and shows the full table.</p>
+
+  <div class="tool-card">
+    <div id="toolMount" data-tool="shoe-size-converter"><div class="field"><label>Calculator</label></div></div>
+  </div>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <article class="content">
+    
+<h2>Why shoe sizes cannot be calculated</h2>
+<div class="note-box warn"><strong>There is no formula.</strong> Length units convert by multiplication; shoe sizes do not, because each system uses a different zero point and a different step size. EU sizes step in "Paris points" (2/3 cm), UK sizes step in 1/3 inch with a separate children's offset, and US sizes use yet another origin. Any tool that applies a single multiplication to convert shoe sizes is approximating a table it should simply be looking up.</div>
+
+<h2>The systems, and what they actually measure</h2>
+<table class="data">
+<thead><tr><th>System</th><th>Basis</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>US / UK</td><td> barleycorn steps</td><td>1/3 inch increments, different zero points</td></tr>
+<tr><td>EU</td><td>Paris point</td><td>1 point = 2/3 cm, includes allowance</td></tr>
+<tr><td>Japan</td><td>centimetres</td><td>Measures foot length directly — the most literal system</td></tr>
+<tr><td>China</td><td>mm / EU-style</td><td>Often aligned with EU numbering</td></tr>
+</tbody></table>
+
+<h2>The US men's and women's gap</h2>
+<p>US women's sizing runs approximately 1.5 sizes above men's for the same physical length: a women's US 9 corresponds to a men's US 7.5. Note that width fittings are an entirely separate axis — a "wide" in one brand can be a standard width in another, and no length conversion captures that.</p>
+
+<h2>Brand variation is larger than system variation</h2>
+<p>Two boots both labelled EU 42 can differ by several millimetres internally, because each manufacturer builds on its own last — the foot-shaped form the shoe is constructed around. Athletic brands run small, dress shoe brands often run large, and Italian sizing frequently runs narrow. Treat any conversion as a starting point for trying on, never as a guarantee of fit.</p>
+
+<h2>Measure instead of converting</h2>
+<p>The most reliable method bypasses conversion entirely: trace your foot at the end of the day (feet swell), measure heel-to-longest-toe in centimetres, and match against the manufacturer's own chart. The Japan/cm column in the table below is the closest thing to a universal reference, because it is a direct length rather than an index.</p>
+
+    <div class="faq"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-q" aria-expanded="false">Why can't shoe sizes be converted with a formula?</button><div class="faq-a"><p>Each system uses a different zero point and step size (barleycorns, Paris points, centimetres), so the relationship is a correspondence table, not a ratio.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What is a US women's 9 in men's?</button><div class="faq-a"><p>Approximately a US men's 7.5. Women's sizing runs about 1.5 sizes higher than men's for the same length.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is EU 42 the same as UK 8?</button><div class="faq-a"><p>Close, but not exactly. EU 42 corresponds to about UK 7.5–8 depending on the brand. Always check the specific maker's chart.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Why do sizes differ between brands?</button><div class="faq-a"><p>Each brand builds shoes on its own last (the foot form). Last shape, intended sock thickness and regional fit preferences all shift the internal dimensions.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What is the most reliable way to find my size?</button><div class="faq-a"><p>Measure your foot in centimetres at the end of the day and compare against that brand's own chart rather than converting from another system.</p></div></div></div>
+  </article>
+
+<!-- ADSENSE_ADSENSE_SLOT_MID2 : uncomment after AdSense approval and fill in your IDs
+  <div class="ad-slot">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  -->
+
+  <section class="related">
+    <h2>Related tools</h2>
+    <div class="grid"><a href="length-converter.html" class="card"><div class="card-icon">📏</div><h3>Length Converter</h3><p>Convert length between metric and imperial units instantly. Includes nanometers, miles, nautica…</p></a><a href="weight-converter.html" class="card"><div class="card-icon">⚖️</div><h3>Weight Converter</h3><p>Convert weight between kilograms, pounds, ounces, stone, grams and tonnes with exact definitions.</p></a><a href="cooking-converter.html" class="card"><div class="card-icon">🍳</div><h3>Cooking Converter</h3><p>Convert cooking measurements including the US, Japanese and Australian cup. Converts volume to …</p></a></div>
+  </section>
+  
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Mensura</h4>
+      <p>Free precision measurement and calculation tools. Every calculation runs locally in your browser — nothing is uploaded, and no account is required.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="../category/unit-converters.html">Unit Converters</a>
+      <a href="../category/math.html">Math Calculators</a>
+      <a href="../category/date-time.html">Date &amp; Time Tools</a>
+      <a href="../category/developer.html">Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="../pages/about.html">About Us</a>
+      <a href="../pages/contact.html">Contact</a>
+      <a href="../pages/methodology.html">Methodology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="../pages/privacy.html">Privacy Policy</a>
+      <a href="../pages/terms.html">Terms of Use</a>
+      <a href="../pages/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mensura. All rights reserved. | Contact: juju089@qq.com
+    <div class="ad-disclosure">Advertising Disclosure: Mensura is supported by advertising. Some links and ad placements may generate revenue, but advertising partners do not influence our calculation methods or results.</div>
+  </div>
+</div>
+</footer>
+<script src="../assets/js/app.js?v=20261024i"></script>
+<script src="../assets/js/tools.js?v=20261024i"></script>
+</body>
+</html>

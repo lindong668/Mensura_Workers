@@ -124,7 +124,7 @@
         { id: 'cm3',   name: 'Cubic Centimeter',      sym: 'cm³',      f: 0.001 },
         { id: 'm3',    name: 'Cubic Meter',           sym: 'm³',       f: 1000 },
         { id: 'inus',  name: 'Cubic Inch',            sym: 'in³',      f: 0.016387064 },
-        { id: 'ft3',   name: 'Cubic Foot',            sym: 'ft³',      f: 0.028316846592 },
+        { id: 'ft3',   name: 'Cubic Foot',            sym: 'ft³',      f: 28.316846592 },
         { id: 'galus', name: 'Gallon (US)',           sym: 'gal (US)', f: 3.785411784 },
         { id: 'galuk', name: 'Gallon (UK / Imperial)',sym: 'gal (UK)', f: 4.54609 },
         { id: 'qtus',  name: 'Quart (US)',            sym: 'qt (US)',  f: 0.946352946 },

@@ -56,6 +56,29 @@
   --shadow:        0 2px 12px rgba(16, 24, 40, 0.06);
   --shadow-lg:     0 12px 32px rgba(16, 24, 40, 0.12);
 }
+/* ★ FOUC 兜底：系统明确偏好浅色、且 JS 还没来得及设 data-theme 时，
+   直接应用浅色变量，避免首绘先闪一下深色（:root 默认是深色）。
+   与 <head> 里的内联脚本互为双保险：脚本生效则脚本优先，
+   脚本被缓存/未执行时这里兜住。 */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+  --bg:            #F5F7FB;
+  --bg-soft:       #FFFFFF;
+  --card:          #FFFFFF;
+  --card-2:        #F0F3F9;
+  --border:        #DDE3EE;
+  --border-soft:   #E8EDF5;
+  --text:          #111827;
+  --text-2:        #374151;
+  --muted:         #6B7280;
+  --primary:       #2563EB;
+  --primary-dark:  #1D4ED8;
+  --primary-soft:  rgba(37, 99, 235, 0.10);
+  --shadow:        0 2px 12px rgba(16, 24, 40, 0.06);
+  --shadow-lg:     0 12px 32px rgba(16, 24, 40, 0.12);
+  }
+}
+
 
 /* Reset ------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; }

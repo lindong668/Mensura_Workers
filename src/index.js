@@ -32,6 +32,13 @@ export default {
 
     const pathname = url.pathname;
 
+    /* ★★ K4 新增：www → apex 全路径 301（与 1 号 V25 同构）
+     * 放在所有拦截【之前】，www 的任意路径一律 301，无例外。
+     */
+    if (url.hostname === 'www.saoo.me') {
+      return Response.redirect('https://saoo.me' + url.pathname + url.search, 301);
+    }
+
     if (pathname === '/ads.txt') {
       return new Response(ADS_TXT, {
         status: 200,

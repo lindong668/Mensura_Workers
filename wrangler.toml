@@ -20,7 +20,8 @@ main = "src/index.js"
 #         routes 方式直接用站点自己的免费 Universal SSL 证书
 # ⚠️ 必须在所有 [section] 之前，否则会被当成 assets.routes
 routes = [
-  { pattern = "saoo.me/*", zone_name = "saoo.me" }
+  { pattern = "saoo.me/*", zone_name = "saoo.me" },
+  { pattern = "www.saoo.me/*", zone_name = "saoo.me" }
 ]
 
 [assets]
@@ -41,7 +42,9 @@ binding = "ASSETS"
 #
 # 【额度影响】这三个路径会 invoke Worker → 计入 100k/天额度，
 #   但只有 Google / AdSense 偶尔抓几次，量级可忽略。
-run_worker_first = ["/ads.txt", "/robots.txt", "/sitemap.xml"]
+# ★ K4 改为 true：www 的 301 需对【所有路径】生效，
+#   数组形式只对列出的三个路径生效，www 的其他路径不会跳。
+run_worker_first = true
 
 # 请求日志（CF 控制台 → Workers → 该站 → Observability 实时查看）
 # invocation_logs 才负责记录「每一次请求」（URL / UA / IP / 状态码）

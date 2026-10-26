@@ -27,6 +27,22 @@ routes = [
 directory = "./public"
 binding = "ASSETS"
 
+# ★★★ 关键修正（2026-10-26）：让 Worker 先接管这三个 SEO 文件
+#
+# 【默认行为是「静态资源优先」】
+#   请求只要能匹配到 public/ 里的同名文件，就直接返回静态文件，
+#   Worker 代码根本不会执行。public/ 里有 ads.txt / robots.txt /
+#   sitemap.xml，所以 src/index.js 里那段硬编码拦截默认【不生效】。
+#
+# 【为什么必须让 Worker 接管】
+#   Worker 层返回可以把 Content-Type 钉死（text/plain / application/xml），
+#   这是根治 GSC「无法抓取 / 类型未知」和 AdSense「ads.txt 找不到」的关键。
+#   交给静态层就得依赖 _headers 的 MIME 声明，多一层不确定。
+#
+# 【额度影响】这三个路径会 invoke Worker → 计入 100k/天额度，
+#   但只有 Google / AdSense 偶尔抓几次，量级可忽略。
+run_worker_first = ["/ads.txt", "/robots.txt", "/sitemap.xml"]
+
 # 请求日志（CF 控制台 → Workers → 该站 → Observability 实时查看）
 # invocation_logs 才负责记录「每一次请求」（URL / UA / IP / 状态码）
 [observability]

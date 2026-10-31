@@ -1,15 +1,17 @@
-User-agent: *
-Allow: /
+# robots.txt — saoo.me
+# 精简版：不拦任何爬虫（含 AI），最大化 Google / Bing 收录与 AI 引用曝光
+# 已移除非标准信号行，消除 GSC「Googlebot 忽略的规则」警告
 
-# Google's AdSense crawler — ensure it can reach ad-bearing pages
 User-agent: Mediapartners-Google
 Allow: /
 
-# Explicitly welcome major crawlers
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: *
 Allow: /
 
 Sitemap: https://saoo.me/sitemap.xml

@@ -1,4 +1,4 @@
-# 6号 · Mensura — saoo.me（根域）· Cloudflare Workers 版 · K6
+# 6号 · Mensura — saoo.me（根域）· Cloudflare Workers 版 · K7
 
 > **一眼识别卡**
 > | 项 | 值 |
@@ -7,7 +7,7 @@
 > | 域名 | **https://saoo.me**（根域；注意是 `saoo` 两个 o） |
 > | Worker 名 | `mensura-workers` |
 > | 形态 | **Cloudflare Workers + Assets**（非 Pages / 非 GitHub Pages） |
-> | 本包版本 | **K6** = K5（修 meta 描述超长）+ 修复中文文件名乱码 |
+> | 本包版本 | **K7** = K6 + 联系邮箱统一为 yokok8@outlook.com（并补 mailto 链接） |
 > | 生成日期 | 2026-10-27 |
 > | 页面数 | 31 页（20 工具 + 4 分类 + 6 静态页 + 首页） |
 

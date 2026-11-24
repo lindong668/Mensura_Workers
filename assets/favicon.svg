@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Plantorial leaf icon">
+  <rect width="64" height="64" rx="6" fill="#5c2c16"/>
+  <path d="M32 5.5 C 49.5 17, 53.5 36.5, 32 57.5 C 10.5 36.5, 14.5 17, 32 5.5 Z" fill="#f4eee2"/>
+  <path d="M32 12 V 51" fill="none" stroke="#a8742f" stroke-width="4.2" stroke-linecap="round"/>
+  <path d="M32 26.5 L 19.5 19 M32 26.5 L 44.5 19" fill="none" stroke="#a8742f" stroke-width="3.6" stroke-linecap="round"/>
+</svg>
